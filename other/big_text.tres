@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://brbdl0vfu4ble"]
+
+[ext_resource type="FontFile" uid="uid://der680wf3swvc" path="res://other/fonts/NotoColorEmoji-Regular.ttf" id="1_nwt0r"]
+
+[resource]
+font = ExtResource("1_nwt0r")
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

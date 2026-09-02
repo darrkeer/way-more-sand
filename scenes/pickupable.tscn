@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bc7glyukffdj4"]
+
+[ext_resource type="Script" uid="uid://b2ybxylnhb4jm" path="res://scripts/interactables/pickupable.gd" id="1_q4ydg"]
+[ext_resource type="Texture2D" uid="uid://brtgdaoxvxasg" path="res://sprites/knife.png" id="2_dgthv"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_m6yg2"]
+[ext_resource type="Texture2D" uid="uid://bp5rtnvg5jab8" path="res://sprites/glow_particle.png" id="4_epd74"]
+
+[sub_resource type="Resource" id="Resource_dga24"]
+script = ExtResource("2_m6yg2")
+text = " 👇🖱️⬈"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b1xnl"]
+radius = 0.66102
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epd74"]
+atlas = ExtResource("4_epd74")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yqa7"]
+atlas = ExtResource("4_epd74")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ykve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epd74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yqa7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_dgthv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_m6yg2"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.53, 2.97),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epd74"]
+_data = {
+&"RESET": SubResource("Animation_dgthv"),
+&"idle": SubResource("Animation_m6yg2")
+}
+
+[node name="Pickupable" type="Area3D" unique_id=296488814]
+script = ExtResource("1_q4ydg")
+hint = SubResource("Resource_dga24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=638433566]
+shape = SubResource("SphereShape3D_b1xnl")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1433403139]
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_dgthv")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite3D" unique_id=730048382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21850038, 0)
+pixel_size = 0.017
+billboard = 1
+texture_filter = 0
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_5ykve")
+autoplay = "default"
+frame = 1
+frame_progress = 0.95548356
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1877541849]
+libraries/ = SubResource("AnimationLibrary_epd74")
+autoplay = &"idle"

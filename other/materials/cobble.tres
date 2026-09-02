@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bo765he3hh43s"]
+
+[ext_resource type="Texture2D" uid="uid://dlu3ytunpi5fd" path="res://sprites/brick2_exture.png" id="1_ld55u"]
+
+[resource]
+albedo_texture = ExtResource("1_ld55u")
+uv1_triplanar = true
+texture_filter = 0

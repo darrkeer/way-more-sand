@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://8uvcb7pl884u"]
+
+[ext_resource type="Script" uid="uid://dsepdyo6s6djm" path="res://scripts/enemies/enemy_base.gd" id="1_0dyjn"]
+[ext_resource type="Texture2D" uid="uid://b1lo0wp0i2h8f" path="res://sprites/knight.png" id="1_dp28g"]
+[ext_resource type="Script" uid="uid://ctxrwss8vuk8g" path="res://scripts/states/state_machine.gd" id="3_5fsgc"]
+[ext_resource type="Texture2D" uid="uid://di8xmkaqw6rqx" path="res://sprites/shadow.png" id="3_mvyd6"]
+[ext_resource type="Script" uid="uid://bfkvjj8vg42se" path="res://scripts/enemies/knight/knight_idle.gd" id="4_swm0g"]
+[ext_resource type="Script" uid="uid://bj3aruy8r6j5v" path="res://scripts/enemies/knight/knight_chase.gd" id="5_5fsgc"]
+[ext_resource type="Script" uid="uid://dmh4av022uwd3" path="res://scripts/enemies/knight/knight_damage.gd" id="6_swm0g"]
+[ext_resource type="Script" uid="uid://bksufk4ec1qma" path="res://scripts/enemies/knight/knight_attack.gd" id="7_k2txo"]
+[ext_resource type="Script" uid="uid://svvwpjvy7ime" path="res://scripts/enemies/knight/knight_death.gd" id="9_14u3r"]
+[ext_resource type="Script" uid="uid://cxctxwsk1i826" path="res://scripts/enemies/knight/knight_inactive.gd" id="10_3cm67"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1xnl"]
+radius = 0.29101563
+height = 1.0009766
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i0j8"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxgmm"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7bgd"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1vv"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swm0g"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2txo"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvyd6"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14u3r"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cm67"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8y5l"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(128, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06ia3"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(256, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a0iq"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(384, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ko4r"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(384, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw3uw"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(0, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ok4f"]
+atlas = ExtResource("1_dp28g")
+region = Rect2(128, 512, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1xnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i0j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxgmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxgmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxgmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7bgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi1vv")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swm0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2txo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvyd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14u3r")
+}],
+"loop": 1,
+"name": &"chase",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cm67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8y5l")
+}],
+"loop": 0,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06ia3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a0iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ko4r")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw3uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ok4f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Knight" type="Node3D" unique_id=390920761]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=124303464 node_paths=PackedStringArray("agent", "state_machine")]
+script = ExtResource("1_0dyjn")
+VIEW_DISTANCE = 10.0
+DAMAGE_RANGE = 3.0
+INACTIVE_DISTANCE = 20.0
+MOVE_SPEED = 4.0
+ATTACK_RANGE = 1.0
+MOVE_SOUND_DELAY = 0.8
+BASE_HP = 10
+BASE_DAMAGE = 10
+agent = NodePath("NavigationAgent3D")
+state_machine = NodePath("../StateMachine")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=425239247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49951172, 0)
+shape = SubResource("CapsuleShape3D_b1xnl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=1536939857]
+path_height_offset = -0.2
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=376186462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_b1xnl")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D" unique_id=138838385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010813475, -0.41133487, 0)
+billboard = 1
+texture = ExtResource("3_mvyd6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CharacterBody3D" unique_id=1905869779]
+light_color = Color(0.8235294, 0.7019608, 0.43137255, 1)
+light_energy = 0.5
+omni_range = 1.9497234
+
+[node name="StateMachine" type="Node" parent="." unique_id=158099096]
+script = ExtResource("3_5fsgc")
+initial_state = "idle"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1069056765 node_paths=PackedStringArray("base", "player")]
+script = ExtResource("4_swm0g")
+base = NodePath("../../CharacterBody3D")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "idle"
+state_name = "idle"
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=318727299 node_paths=PackedStringArray("base", "player")]
+script = ExtResource("5_5fsgc")
+base = NodePath("../../CharacterBody3D")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "chase"
+state_name = "chase"
+
+[node name="Damage" type="Node" parent="StateMachine" unique_id=679750137 node_paths=PackedStringArray("base", "sprite", "player")]
+script = ExtResource("6_swm0g")
+base = NodePath("../../CharacterBody3D")
+sprite = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "damage"
+state_name = "damage"
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=801871711 node_paths=PackedStringArray("base", "player")]
+script = ExtResource("7_k2txo")
+base = NodePath("../../CharacterBody3D")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "attack"
+state_name = "attack"
+
+[node name="Death" type="Node" parent="StateMachine" unique_id=197594114 node_paths=PackedStringArray("base_object", "player")]
+script = ExtResource("9_14u3r")
+base_object = NodePath("../..")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "death"
+state_name = "death"
+
+[node name="Inactive" type="Node" parent="StateMachine" unique_id=1932371490 node_paths=PackedStringArray("sprite", "light", "base", "player")]
+script = ExtResource("10_3cm67")
+sprite = NodePath("../../CharacterBody3D/Sprite3D")
+light = NodePath("../../CharacterBody3D/OmniLight3D")
+base = NodePath("../../CharacterBody3D")
+player = NodePath("../../CharacterBody3D/AnimatedSprite3D")
+animation_name = "idle"
+state_name = "inactive"

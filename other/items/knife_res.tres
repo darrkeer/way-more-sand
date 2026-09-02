@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="KnifeResource" format=3 uid="uid://csdjlt1ij0mox"]
+
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="1_13pxi"]
+[ext_resource type="Texture2D" uid="uid://bfil015p846wh" path="res://sprites/knife_hand.png" id="2_o63dm"]
+[ext_resource type="Script" uid="uid://cdrw2311g1a15" path="res://scripts/interactables/knife_resource.gd" id="3_p0ejy"]
+
+[sub_resource type="Resource" id="Resource_qxobb"]
+script = ExtResource("1_13pxi")
+text = "🖱️→→🔪🩸!"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[resource]
+script = ExtResource("3_p0ejy")
+DAMAGE = 2
+item_name = "knife"
+image = ExtResource("2_o63dm")
+pickup_sound_name = "knife_pickup"
+hint_message = SubResource("Resource_qxobb")
+metadata/_custom_type_script = "uid://cdrw2311g1a15"

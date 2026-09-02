@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cdnnub7u7owi4"]
+
+[ext_resource type="Script" uid="uid://dko3tngt7afm3" path="res://scripts/scene_manager.gd" id="1_65mdo"]
+[ext_resource type="PackedScene" uid="uid://dmre518n251ee" path="res://scenes/levels/test_level.tscn" id="2_b81s6"]
+[ext_resource type="PackedScene" uid="uid://dfjjglryku2vy" path="res://scenes/levels/level_1.tscn" id="3_b81s6"]
+[ext_resource type="PackedScene" uid="uid://benj5neyt7mt3" path="res://scenes/levels/level_2.tscn" id="4_h7lqg"]
+[ext_resource type="PackedScene" uid="uid://bmybalm4c6umh" path="res://scenes/levels/final_level.tscn" id="5_q7wi7"]
+[ext_resource type="PackedScene" uid="uid://8s8fnpoj51yl" path="res://trenchbroom/models/1_level.tscn" id="6_6k21d"]
+
+[sub_resource type="Gradient" id="Gradient_p1hsj"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b1xnl"]
+gradient = SubResource("Gradient_p1hsj")
+width = 400
+height = 300
+
+[node name="SceneManager" type="CanvasLayer" unique_id=56678328 node_paths=PackedStringArray("bar")]
+script = ExtResource("1_65mdo")
+bar = NodePath("TextureProgressBar")
+scenes = Dictionary[String, PackedScene]({
+"": null,
+"1level": ExtResource("6_6k21d"),
+"final": ExtResource("5_q7wi7"),
+"level1": ExtResource("3_b81s6"),
+"level2": ExtResource("4_h7lqg"),
+"test": ExtResource("2_b81s6")
+})
+initial_scene = "1level"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=746205613]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_b1xnl")

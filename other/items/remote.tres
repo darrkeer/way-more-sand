@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://gpmys0kul5d2"]
+
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="1_idn6f"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="1_le25g"]
+[ext_resource type="Texture2D" uid="uid://nvn7ml11iomp" path="res://sprites/remote_hand.png" id="2_ssbaw"]
+
+[sub_resource type="Resource" id="Resource_d4vnl"]
+script = ExtResource("1_le25g")
+text = "🖱️→📺📺"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[resource]
+script = ExtResource("1_idn6f")
+item_name = "remote"
+image = ExtResource("2_ssbaw")
+pickup_sound_name = "remote"
+hint_message = SubResource("Resource_d4vnl")
+metadata/_custom_type_script = "uid://dbxp5x0u8xc0n"

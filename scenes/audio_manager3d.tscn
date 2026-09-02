@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cak2me18xqpuy"]
+
+[ext_resource type="Script" uid="uid://bt5i1er8cg4jh" path="res://scripts/audio/audio_manager3d.gd" id="1_ew6c1"]
+[ext_resource type="AudioStream" uid="uid://di4fueqoijnn6" path="res://sounds/clock1.ogg" id="2_brib5"]
+[ext_resource type="AudioStream" uid="uid://d17acca2y7b6w" path="res://sounds/clock2.ogg" id="3_ynr03"]
+[ext_resource type="AudioStream" uid="uid://b748xkn5pp8v2" path="res://sounds/clock3.ogg" id="4_fot4h"]
+[ext_resource type="AudioStream" uid="uid://bacruojhiix4f" path="res://sounds/clock4.ogg" id="5_o0r0u"]
+[ext_resource type="AudioStream" uid="uid://paykwnfp2ewv" path="res://sounds/knife.ogg" id="6_fot4h"]
+[ext_resource type="PackedScene" uid="uid://msl22v3boqyw" path="res://scenes/audio_stream_player_3d.tscn" id="6_k86d5"]
+[ext_resource type="AudioStream" uid="uid://gapkrn2insfy" path="res://sounds/keys.ogg" id="7_o0r0u"]
+[ext_resource type="AudioStream" uid="uid://dvm5jst4qxjnb" path="res://sounds/sand.ogg" id="8_k86d5"]
+[ext_resource type="AudioStream" uid="uid://b50qvcfccmv7k" path="res://sounds/add_clocks.ogg" id="9_o0r0u"]
+[ext_resource type="AudioStream" uid="uid://vhbohnyvfwv3" path="res://sounds/door.ogg" id="10_k86d5"]
+[ext_resource type="AudioStream" uid="uid://ce6033f8r2nin" path="res://sounds/chess1.ogg" id="11_05qu0"]
+[ext_resource type="AudioStream" uid="uid://bs758u4q0f0a0" path="res://sounds/chess2.ogg" id="12_ckenc"]
+[ext_resource type="AudioStream" uid="uid://bkamm64jdoggm" path="res://sounds/chess3.ogg" id="13_qh2nk"]
+[ext_resource type="AudioStream" uid="uid://c07ssl6du8oyp" path="res://sounds/knight_attack.ogg" id="14_ckenc"]
+[ext_resource type="AudioStream" uid="uid://b62qknbhudhy7" path="res://sounds/damage.ogg" id="15_qh2nk"]
+[ext_resource type="AudioStream" uid="uid://dhdugeunns22p" path="res://sounds/knife_hit1.ogg" id="16_smi1f"]
+[ext_resource type="AudioStream" uid="uid://djxkdr1hcxog1" path="res://sounds/knife_hit2.ogg" id="17_o6w00"]
+[ext_resource type="AudioStream" uid="uid://76gp3blu0v1d" path="res://sounds/knife_hit3.ogg" id="18_0lldi"]
+[ext_resource type="AudioStream" uid="uid://53ydcki7xnjv" path="res://sounds/knight_damage.ogg" id="19_o6w00"]
+[ext_resource type="AudioStream" uid="uid://b2b7yf7opqwfp" path="res://sounds/footstep1.ogg" id="20_wltig"]
+[ext_resource type="AudioStream" uid="uid://cbyo730vmojqj" path="res://sounds/footstep2.ogg" id="21_na56g"]
+[ext_resource type="AudioStream" uid="uid://duas7n34ofpdf" path="res://sounds/footstep3.ogg" id="22_i442c"]
+[ext_resource type="AudioStream" uid="uid://7p6dqkn8sdle" path="res://sounds/tv_enable.ogg" id="23_6cge1"]
+[ext_resource type="AudioStream" uid="uid://eg6od462e8vo" path="res://sounds/tv_disable.ogg" id="24_oo7ui"]
+[ext_resource type="AudioStream" uid="uid://m18v7byxdynr" path="res://sounds/tv_static.ogg" id="25_mrdsj"]
+[ext_resource type="AudioStream" uid="uid://cc0rf0ypynimc" path="res://sounds/fall.ogg" id="26_oo7ui"]
+[ext_resource type="AudioStream" uid="uid://dqrpn5vgrk6t6" path="res://sounds/pickup2.ogg" id="27_sbnjv"]
+[ext_resource type="AudioStream" uid="uid://ble44xlqo4n5u" path="res://sounds/pickup1.ogg" id="28_i2sqn"]
+
+[node name="AudioManager3D" type="Node" unique_id=481763374]
+script = ExtResource("1_ew6c1")
+sounds = Dictionary[String, AudioStream]({
+"balloon": ExtResource("27_sbnjv"),
+"chess1": ExtResource("11_05qu0"),
+"chess2": ExtResource("12_ckenc"),
+"chess3": ExtResource("13_qh2nk"),
+"clock1": ExtResource("2_brib5"),
+"clock2": ExtResource("3_ynr03"),
+"clock3": ExtResource("4_fot4h"),
+"clock4": ExtResource("5_o0r0u"),
+"clocks_add": ExtResource("9_o0r0u"),
+"damage": ExtResource("15_qh2nk"),
+"door": ExtResource("10_k86d5"),
+"fall": ExtResource("26_oo7ui"),
+"footstep1": ExtResource("20_wltig"),
+"footstep2": ExtResource("21_na56g"),
+"footstep3": ExtResource("22_i442c"),
+"keys_pickup": ExtResource("7_o0r0u"),
+"knife_hit1": ExtResource("16_smi1f"),
+"knife_hit2": ExtResource("17_o6w00"),
+"knife_hit3": ExtResource("18_0lldi"),
+"knife_pickup": ExtResource("6_fot4h"),
+"knight_attack": ExtResource("14_ckenc"),
+"knight_damage": ExtResource("19_o6w00"),
+"remote": ExtResource("28_i2sqn"),
+"sand_pickup": ExtResource("8_k86d5"),
+"tv_disable": ExtResource("24_oo7ui"),
+"tv_enable": ExtResource("23_6cge1"),
+"tv_static": ExtResource("25_mrdsj")
+})
+audio_player_prefab = ExtResource("6_k86d5")

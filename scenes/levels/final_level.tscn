@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bmybalm4c6umh"]
+
+[ext_resource type="PackedScene" uid="uid://ccdg7sphotq1j" path="res://scenes/levels/base_level.tscn" id="1_bks8w"]
+[ext_resource type="PackedScene" uid="uid://c7tetrtkvnvte" path="res://scenes/player.tscn" id="2_ifx55"]
+[ext_resource type="Material" uid="uid://drvc4eacmyj6i" path="res://other/materials/chessboard2.tres" id="3_e446s"]
+[ext_resource type="PackedScene" uid="uid://cs0b8uwaeps73" path="res://scenes/non_interactable_door.tscn" id="4_jwk10"]
+[ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/sand.tscn" id="5_3xiv5"]
+[ext_resource type="FontFile" uid="uid://der680wf3swvc" path="res://other/fonts/NotoColorEmoji-Regular.ttf" id="5_ifx55"]
+[ext_resource type="PackedScene" uid="uid://buyu01fa4sgfc" path="res://scenes/clock_station.tscn" id="6_rqhej"]
+
+[node name="FinalLevel" type="Node3D" unique_id=1409932588]
+
+[node name="BaseLevel" parent="." unique_id=1216898831 instance=ExtResource("1_bks8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7419608, 0, 0.5248909)
+
+[node name="Player" parent="." unique_id=920131698 instance=ExtResource("2_ifx55")]
+transform = Transform3D(-0.9897273, 0, 0.14296807, 0, 1, 0, -0.14296807, 0, -0.9897273, -1.4498272, 1.7116747, 27.075294)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=240711293]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=471985380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -8, 0)
+size = Vector3(7, 17, 7)
+material = ExtResource("3_e446s")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D" unique_id=1574406120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+size = Vector3(3, 17, 27)
+material = ExtResource("3_e446s")
+
+[node name="NonInteractableDoor" parent="CSGCombiner3D/CSGBox3D" unique_id=1455970751 instance=ExtResource("4_jwk10")]
+transform = Transform3D(-0.048781026, 0, 0.9988095, 0, 1, 0, -0.9988095, 0, -0.048781026, -0.050450325, 8.793092, 29.229664)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1073950562]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.2164688, 2.2753663, -5.073668)
+billboard = 1
+text = "🎉🎉win🥳🥳"
+font = ExtResource("5_ifx55")
+font_size = 16
+
+[node name="Sand" parent="." unique_id=296488814 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6315355, 0.82, 2.5034633)
+
+[node name="Sand2" parent="." unique_id=2117160477 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5667211, 0.82, 2.4853578)
+
+[node name="Sand3" parent="." unique_id=1917244212 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8251343, 0.82, -2.4984636)
+
+[node name="Sand4" parent="." unique_id=266325948 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5589424, 0.8199995, -2.6114311)
+
+[node name="Sand5" parent="." unique_id=1281456774 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8187128, 0.82, -0.0911026)
+
+[node name="Sand6" parent="." unique_id=1400659509 instance=ExtResource("5_3xiv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.900868, 0.82, 0.1826973)
+
+[node name="ClockStation" parent="." unique_id=1152516515 instance=ExtResource("6_rqhej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7508459, 0.7563989, -0.18648529)

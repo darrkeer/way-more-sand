@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cs0b8uwaeps73"]
+
+[ext_resource type="Script" uid="uid://be1hqudqy8y20" path="res://scripts/interactables/interactable.gd" id="1_d1ayv"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_vlus7"]
+[ext_resource type="PackedScene" uid="uid://8gjwy1efuynt" path="res://models/door.glb" id="3_41yhd"]
+
+[sub_resource type="Resource" id="Resource_g2h2n"]
+script = ExtResource("2_vlus7")
+text = "❌❌❌"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4q67o"]
+size = Vector3(0.43759155, 2.3036566, 1.3620281)
+
+[node name="NonInteractableDoor" type="StaticBody3D" unique_id=1455970751]
+script = ExtResource("1_d1ayv")
+hint = SubResource("Resource_g2h2n")
+
+[node name="door" parent="." unique_id=1003954732 instance=ExtResource("3_41yhd")]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=458664669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015853882, 0.931684, 0.010251045)
+shape = SubResource("BoxShape3D_4q67o")

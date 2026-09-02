@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctrhdy0t0jeg2"]
+
+[ext_resource type="Script" uid="uid://qqvhpkinp7si" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[node name="Settings" type="Node" unique_id=1140242674]
+script = ExtResource("1_5p8wc")
+values = {
+"bgm_volume": 0.1,
+"mouse_sens": 0.2,
+"sfx_volume": 0.1
+}

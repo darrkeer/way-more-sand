@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4ir4aq1k5w2g"]
+
+[ext_resource type="Script" uid="uid://co66m8yaie4ct" path="res://scripts/audio/bgm_manager.gd" id="1_w426a"]
+[ext_resource type="AudioStream" uid="uid://dbwjwygikvn8t" path="res://sounds/bgm1.ogg" id="2_pf0ca"]
+
+[node name="BGMManager" type="Node" unique_id=886515651 node_paths=PackedStringArray("player")]
+process_mode = 3
+script = ExtResource("1_w426a")
+sounds = Dictionary[String, AudioStream]({
+"bgm1": ExtResource("2_pf0ca")
+})
+player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=867964871]
+bus = &"BGM"

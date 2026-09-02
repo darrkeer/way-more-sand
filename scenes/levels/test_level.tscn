@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dmre518n251ee"]
+
+[ext_resource type="PackedScene" uid="uid://c7tetrtkvnvte" path="res://scenes/player.tscn" id="1_jbqir"]
+[ext_resource type="Texture2D" uid="uid://coaow1pfoay7x" path="res://sprites/test-floor.png" id="2_yautc"]
+[ext_resource type="PackedScene" uid="uid://cdt3c3bmv311i" path="res://scenes/knife.tscn" id="3_fr1um"]
+[ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/sand.tscn" id="4_48ne7"]
+[ext_resource type="PackedScene" uid="uid://dk7m7qt7fkm07" path="res://scenes/keys.tscn" id="5_6xh4u"]
+[ext_resource type="PackedScene" uid="uid://buyu01fa4sgfc" path="res://scenes/clock_station.tscn" id="6_6xh4u"]
+[ext_resource type="PackedScene" uid="uid://duyvxmqhhw315" path="res://scenes/door.tscn" id="7_cyt5c"]
+[ext_resource type="PackedScene" uid="uid://8uvcb7pl884u" path="res://scenes/knight.tscn" id="8_7x1jh"]
+
+[sub_resource type="Environment" id="Environment_b1xnl"]
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.18359044, 0.18359047, 0.18359038, 1)
+ambient_light_energy = 0.1
+reflected_light_source = 1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_b1xnl"]
+vertices = PackedVector3Array(-17, 1, -3, -3.75, 1, -3, -3.75, 1, -4.5, -2, 1, -4.75, -2, 1, -27, -17, 1, -27, -0.25, 1, -1.75, 3.25, 1, 2.5, 4.25, 1, 2.5, -0.25, 1, -4.5, 4.5, 1, 3.75, 43, 1, 3.75, 43, 1, -27, -2.75, 4.75, -3.75, -2.75, 4.75, -2.25, -1.25, 4.75, -2.25, -1.25, 4.75, -3.75, -0.5, 1, -1.25, 2.75, 1, 2.75, 2.75, 1, 4.75, -3.5, 1, -1.25, -17, 1, 36, 3.75, 1, 36, 3.75, 1, 5, 4.5, 1, 4.75, 43, 1, 36)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(8, 11, 10), PackedInt32Array(9, 3, 4), PackedInt32Array(9, 4, 8), PackedInt32Array(8, 4, 11), PackedInt32Array(11, 4, 12), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(18, 17, 7), PackedInt32Array(7, 17, 6), PackedInt32Array(20, 19, 0), PackedInt32Array(0, 19, 22), PackedInt32Array(0, 22, 21), PackedInt32Array(18, 19, 17), PackedInt32Array(17, 19, 20), PackedInt32Array(19, 23, 22), PackedInt32Array(0, 1, 20), PackedInt32Array(23, 24, 22), PackedInt32Array(22, 24, 25), PackedInt32Array(25, 24, 11), PackedInt32Array(24, 10, 11)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1xnl"]
+albedo_texture = ExtResource("2_yautc")
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="Node3D" type="Node3D" unique_id=1551805200]
+
+[node name="Player" parent="." unique_id=386493772 instance=ExtResource("1_jbqir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=550691499]
+environment = SubResource("Environment_b1xnl")
+
+[node name="Sand" parent="." unique_id=654196435 instance=ExtResource("4_48ne7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1162517, 0.82, 3.819722)
+
+[node name="Keys" parent="." unique_id=1644743258 instance=ExtResource("5_6xh4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9001884, 0.82, 0.85988426)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1510348978]
+navigation_mesh = SubResource("NavigationMesh_b1xnl")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=1080330487]
+material_override = SubResource("StandardMaterial3D_b1xnl")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D" unique_id=1394476823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4.5)
+size = Vector3(61, 1, 64)
+
+[node name="ClockStation" parent="NavigationRegion3D" unique_id=1152516515 instance=ExtResource("6_6xh4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5326662, -3)
+
+[node name="Door" parent="NavigationRegion3D" unique_id=832983434 instance=ExtResource("7_cyt5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5726743, 0.74224675, 3.7314968)
+
+[node name="Knight" parent="." unique_id=390920761 instance=ExtResource("8_7x1jh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.843196, 0.5, -3.6149988)
+
+[node name="Knife" parent="." unique_id=296488814 instance=ExtResource("3_fr1um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8368554, 0.82, 0.1891625)

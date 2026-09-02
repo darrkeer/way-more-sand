@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bcbmgh0puol1y"]
+
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="1_phv8f"]
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="1_wdxtu"]
+[ext_resource type="Texture2D" uid="uid://beh5aw1ea576l" path="res://sprites/balloon_hand.png" id="2_uwd4y"]
+
+[sub_resource type="Resource" id="Resource_t25op"]
+script = ExtResource("1_phv8f")
+text = "SPaCe?"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[resource]
+script = ExtResource("1_wdxtu")
+item_name = "balloon"
+image = ExtResource("2_uwd4y")
+pickup_sound_name = "balloon"
+hint_message = SubResource("Resource_t25op")
+metadata/_custom_type_script = "uid://dbxp5x0u8xc0n"

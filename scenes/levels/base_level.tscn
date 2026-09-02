@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ccdg7sphotq1j"]
+
+[sub_resource type="Environment" id="Environment_g70hs"]
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.18359044, 0.18359047, 0.18359038, 1)
+ambient_light_energy = 0.1
+reflected_light_source = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+
+[node name="BaseLevel" type="Node3D" unique_id=1216898831]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=372549663]
+environment = SubResource("Environment_g70hs")

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dnw0eufhtd1fh"]
+
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="1_8w4ah"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="1_ciyw8"]
+[ext_resource type="Texture2D" uid="uid://ch5blxol71uge" path="res://sprites/hand_with_keys.png" id="1_ovpig"]
+
+[sub_resource type="Resource" id="Resource_vq0e2"]
+script = ExtResource("1_ciyw8")
+text = "👇🖱️→🚪!!"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[resource]
+script = ExtResource("1_8w4ah")
+item_name = "keys"
+image = ExtResource("1_ovpig")
+pickup_sound_name = "keys_pickup"
+hint_message = SubResource("Resource_vq0e2")
+metadata/_custom_type_script = "uid://dbxp5x0u8xc0n"

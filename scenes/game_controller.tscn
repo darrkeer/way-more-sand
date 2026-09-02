@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c4ddvinqdp7qy"]
+
+[ext_resource type="Script" uid="uid://c0an55ue6ci6g" path="res://scripts/game_controller.gd" id="1_vq0e2"]
+[ext_resource type="PackedScene" uid="uid://dmre518n251ee" path="res://scenes/levels/test_level.tscn" id="2_vc4nx"]
+
+[node name="GameController" type="Node" unique_id=1070731734]
+script = ExtResource("1_vq0e2")
+scenes = Dictionary[String, PackedScene]({
+"test": ExtResource("2_vc4nx")
+})
+initial_scene = "test"

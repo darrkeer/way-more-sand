@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" format=3 uid="uid://k7rm0qmw8hy7"]
+
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="1_r1gst"]
+[ext_resource type="PackedScene" uid="uid://dkvhajsdgnpke" path="res://scenes/chair.tscn" id="2_nu2ye"]
+[ext_resource type="Script" uid="uid://ldfqjtq0br35" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="3_wh8ki"]
+
+[resource]
+script = ExtResource("3_wh8ki")
+target_map_editor = 1
+scene_file = ExtResource("2_nu2ye")
+classname = "func_chair"
+meta_properties = Dictionary[String, Variant]({
+"color": Color(0.8, 0.8, 0.8, 1),
+"model": "{\"path\": \"func_chair.glb\", \"scale\": 32.0 }",
+"size": AABB(-8, -8, -8, 8, 8, 8),
+"studio": "\".glb\""
+})
+metadata/_custom_type_script = "uid://ldfqjtq0br35"

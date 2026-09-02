@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://wc3oftfke1ne"]
+
+[ext_resource type="Texture2D" uid="uid://k8pnr5omn8mn" path="res://models/clock_station_clock_station_texture.png" id="1_1p41v"]
+
+[resource]
+resource_name = "Material"
+albedo_texture = ExtResource("1_1p41v")
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0

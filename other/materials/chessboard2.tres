@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drvc4eacmyj6i"]
+
+[ext_resource type="Texture2D" uid="uid://coaow1pfoay7x" path="res://sprites/test-floor.png" id="1_iwfnc"]
+
+[resource]
+albedo_texture = ExtResource("1_iwfnc")
+uv1_triplanar = true
+texture_filter = 0

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bkkcmuycam2lx"]
+
+[ext_resource type="Script" uid="uid://d4mm7bc66x0mb" path="res://scripts/interactables/tv.gd" id="1_lnbu4"]
+[ext_resource type="PackedScene" uid="uid://dq8h21mf4sba8" path="res://models/tv.glb" id="1_nqyhj"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_ovwuf"]
+[ext_resource type="Texture2D" uid="uid://baq7et8jt2cnm" path="res://models/tv_tv.png" id="3_ovwuf"]
+
+[sub_resource type="Resource" id="Resource_ie1qu"]
+script = ExtResource("2_ovwuf")
+text = "🤖🤖!❤️?"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ykve"]
+shading_mode = 0
+albedo_color = Color(0.17529336, 0.03760783, 0.99999744, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dugcj"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("3_ovwuf")
+roughness = 0.5
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ovwuf"]
+_surfaces = [{
+"aabb": AABB(0.93737054, 0.49674445, -0.879062, 1e-05, 1.9667697, 2.1493952),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 98, 3, 95, 14, 0, 0, 0, 0, 3, 237, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c2pus"]
+resource_name = "tv_Cube_003"
+_surfaces = [{
+"aabb": AABB(0.93737054, 0.49674445, -0.879062, 1e-05, 1.9667697, 2.1493952),
+"attribute_data": PackedByteArray(169, 118, 238, 107, 197, 174, 32, 46, 107, 178, 106, 112, 169, 118, 104, 45),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_dugcj"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 98, 3, 95, 14, 161, 213, 0, 0, 3, 237, 255, 255, 161, 213, 0, 0, 255, 255, 0, 0, 161, 213, 0, 0, 0, 0, 255, 255, 161, 213, 77, 42, 217, 42, 77, 42, 217, 42, 77, 42, 217, 42, 77, 42, 217, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ovwuf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1xnl"]
+size = Vector3(0.7910156, 1.2473145, 1.3144531)
+
+[node name="TV" type="StaticBody3D" unique_id=1323222240 node_paths=PackedStringArray("enabled_light", "disabled_light", "label")]
+script = ExtResource("1_lnbu4")
+enabled_light = NodePath("tv/enabled")
+disabled_light = NodePath("tv/Cube_002")
+text = "vsem priv"
+label = NodePath("tv/enabled/Label3D")
+hint = SubResource("Resource_ie1qu")
+
+[node name="tv" parent="." unique_id=229946889 instance=ExtResource("1_nqyhj")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Cube_001" parent="tv" index="1" unique_id=334709808]
+visible = false
+
+[node name="enabled" type="Node3D" parent="tv" unique_id=205544064]
+
+[node name="Cube_002" type="MeshInstance3D" parent="tv/enabled" unique_id=1878114681]
+material_override = SubResource("StandardMaterial3D_5ykve")
+mesh = SubResource("ArrayMesh_c2pus")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="tv/enabled" unique_id=552407007]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.1489929, 1.5464787, 0.18778056)
+light_color = Color(0.32353243, 0.39111033, 1, 1)
+omni_range = 0.699455
+
+[node name="Label3D" type="Label3D" parent="tv/enabled" unique_id=946234161]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.95710456, 2.3735929, 0.23827656)
+text = "WELCOME TO THE TV"
+font_size = 72
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 1
+width = 410.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="tv/enabled" unique_id=1967115922]
+transform = Transform3D(-1.0927848e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.0927848e-07, -0.7433527, 1.4949226, 0)
+light_color = Color(0.29618073, 0.35176146, 1, 1)
+light_energy = 2.0
+spot_range = 4.3084965
+spot_angle = 45.857723
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=380777453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5496826, -0.0068359375)
+shape = SubResource("BoxShape3D_b1xnl")
+
+[editable path="tv"]
