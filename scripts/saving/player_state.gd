@@ -3,6 +3,8 @@ extends Resource
 
 @export var transforms : Dictionary[String, Transform3D]
 @export var spawn_scene : String
+@export var spawnpoint_id : String
+@export var spawn_on_spawnpoint = false
 @export var time_left : int
 
 func save_pos() -> void:

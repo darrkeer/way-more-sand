@@ -15,11 +15,6 @@ func _ready() -> void:
 		if velocity != Vector3.ZERO and is_on_floor():
 			AudioManager3D.play_sound_on_pos(global_position, _get_random_walk_sound())
 	)
-	SaveManager.saving.connect(func():
-		SaveManager.save_data.player_state.save_pos()
-	)
-	if SaveManager.save_data.player_state and SaveManager.save_data.player_state.get_pos():
-		transform = SaveManager.save_data.player_state.get_pos()
 
 func _physics_process(delta: float) -> void:
 	var hor := Input.get_axis("move_left", "move_right")

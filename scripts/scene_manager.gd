@@ -25,7 +25,7 @@ func load_scene(scene_name : String) -> void:
 	get_tree().paused = true
 	await effect_in()
 	get_tree().change_scene_to_packed(scenes[scene_name])
-	current_scene = scene_name
+	current_scene = scene_name	
 	await effect_out()
 	get_tree().paused = false
 

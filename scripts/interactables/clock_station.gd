@@ -2,9 +2,6 @@ extends Interactable
 
 const TIME_TO_ADD : int = 90
 
-func _ready() -> void:
-	SaveManager.register_node_state(self, BaseNodeStateResource.new())
-
 func interact() -> void:
 	if GameController.inventory.get_current_item().item_name == "sand":
 		GameController.clocks.add_time(TIME_TO_ADD)

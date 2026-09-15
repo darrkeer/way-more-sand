@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhs4xkjm6udsx" path="res://scripts/player/camera_controller.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bbjwmuegtsbv1" path="res://scripts/player/player_movement.gd" id="1_qhqgy"]
-[ext_resource type="Script" uid="uid://dtj7pianm08i2" path="res://scripts/player/player_ready_save.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://f74ut5vfh53p" path="res://scripts/player/player_state_manager.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://dht0f1w3483e4" path="res://scripts/player/interactor.gd" id="10_y4r1p"]
 [ext_resource type="Script" uid="uid://c4ofi23ms2vb4" path="res://scripts/player/inventory_manager.gd" id="11_d2wvv"]
 [ext_resource type="PackedScene" uid="uid://b8c6q0sexks1l" path="res://scenes/uis/ui.tscn" id="15_oprun"]
@@ -11,34 +11,32 @@
 radius = 0.26708984
 height = 1.3793335
 
-[node name="Player" type="Node3D" unique_id=920131698 groups=["player"]]
-
-[node name="Body" type="CharacterBody3D" parent="." unique_id=386493772 groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=386493772 groups=["player"]]
 script = ExtResource("1_qhqgy")
 
-[node name="Camera3D" type="Camera3D" parent="Body" unique_id=1258011031 node_paths=PackedStringArray("holder_x", "holder_y")]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1258011031 node_paths=PackedStringArray("holder_x", "holder_y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 current = true
 script = ExtResource("1_g2els")
 holder_x = NodePath(".")
 holder_y = NodePath("..")
 
-[node name="InteractRay" type="RayCast3D" parent="Body/Camera3D" unique_id=1851974026]
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=1851974026]
 target_position = Vector3(0, 0, -1.5)
 collide_with_areas = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=156734856 groups=["player"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=156734856 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6549988, 0)
 shape = SubResource("CapsuleShape3D_b1xnl")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Body" unique_id=2144921104]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2144921104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1347795, 0)
 light_color = Color(0.8235294, 0.7019608, 0.43137255, 1)
 omni_range = 9.259
 
 [node name="Interactor" type="Node" parent="." unique_id=2084164725 node_paths=PackedStringArray("raycast")]
 script = ExtResource("10_y4r1p")
-raycast = NodePath("../Body/Camera3D/InteractRay")
+raycast = NodePath("../Camera3D/InteractRay")
 
 [node name="Inventory" type="Node" parent="." unique_id=1248601499 node_paths=PackedStringArray("holding_item_rect")]
 script = ExtResource("11_d2wvv")
@@ -50,7 +48,7 @@ menus = {
 "pause": NodePath("Pause")
 }
 
-[node name="SavePosOnReady" type="Node" parent="." unique_id=1401670971]
+[node name="StateManager" type="Node" parent="." unique_id=697772232]
 script = ExtResource("6_tuyoq")
 
 [editable path="UI"]

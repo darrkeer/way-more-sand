@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cdt3c3bmv311i" path="res://scenes/items/knife.tscn" id="3_fr1um"]
 [ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/items/sand.tscn" id="4_48ne7"]
 [ext_resource type="PackedScene" uid="uid://dk7m7qt7fkm07" path="res://scenes/items/keys.tscn" id="5_6xh4u"]
+[ext_resource type="Script" uid="uid://54n0cuyiewqy" path="res://scripts/saving/door_state_resource.gd" id="6_2mu0v"]
 [ext_resource type="PackedScene" uid="uid://buyu01fa4sgfc" path="res://scenes/clock_station.tscn" id="6_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://duyvxmqhhw315" path="res://scenes/door.tscn" id="7_cyt5c"]
 [ext_resource type="PackedScene" uid="uid://8uvcb7pl884u" path="res://scenes/knight.tscn" id="8_7x1jh"]
+[ext_resource type="PackedScene" uid="uid://0kl08qlsj4su" path="res://scenes/spawnpoint.tscn" id="9_2mu0v"]
 
 [sub_resource type="Environment" id="Environment_b1xnl"]
 background_energy_multiplier = 0.0
@@ -25,10 +27,15 @@ albedo_texture = ExtResource("2_yautc")
 uv1_triplanar = true
 texture_filter = 0
 
-[node name="Node3D" type="Node3D" unique_id=1551805200]
+[sub_resource type="Resource" id="Resource_hfwtw"]
+script = ExtResource("6_2mu0v")
+locked = false
+door_id = "test::/root/Node3D/PlayerSpawn"
+next_spawn_id = "1level::/root/Node3D/Door/Spawnpoint"
+next_level = "1level"
+metadata/_custom_type_script = "uid://54n0cuyiewqy"
 
-[node name="Player" parent="." unique_id=386493772 instance=ExtResource("1_jbqir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Node3D" type="Node3D" unique_id=1551805200]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=550691499]
 environment = SubResource("Environment_b1xnl")
@@ -55,11 +62,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5326662, -3)
 
 [node name="Door" parent="NavigationRegion3D" unique_id=832983434 instance=ExtResource("7_cyt5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5726743, 0.74224675, 3.7314968)
-next_level = "1level"
-locked = false
+state = SubResource("Resource_hfwtw")
 
 [node name="Knight" parent="." unique_id=390920761 instance=ExtResource("8_7x1jh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.843196, 0.5, -3.6149988)
 
 [node name="Knife" parent="." unique_id=296488814 instance=ExtResource("3_fr1um")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8368554, 0.82, 0.1891625)
+
+[node name="Spawnpoint" parent="." unique_id=1548503790 instance=ExtResource("9_2mu0v")]
+transform = Transform3D(-0.99906975, 0, 0.043123785, 0, 1, 0, -0.043123785, 0, -0.99906975, 2.2269125, 1.8324798, 3.7314968)
+
+[node name="Player" parent="." unique_id=386493772 instance=ExtResource("1_jbqir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.596048, 2.6876545, -7.9710665)

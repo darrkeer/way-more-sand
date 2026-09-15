@@ -1,25 +1,22 @@
 extends Interactable
 
-@export var next_level : String
-@export var locked = true
+@export var state : DoorStateResource
 
 func _ready() -> void:
 	if SaveManager.get_node_state(self):
-		locked = SaveManager.get_node_state(self).locked
-	SaveManager.register_node_state(self, DoorStateResource.new())
-	SaveManager.saving.connect(func():
-		SaveManager.get_node_state(self).locked = locked
-	)
+		state = SaveManager.get_node_state(self)
+	else:
+		SaveManager.register_node_state(self, state)
 
 func _open() -> void:
-	locked = false
-	SaveManager.save()
+	state.locked = false
 	AudioManager3D.play_sound_on_pos(GameController.player_body.global_position, "door")
-	SceneManager.load_scene(next_level)
+	SaveManager.save_data.player_state.spawnpoint_id = state.next_spawn_id
+	SaveManager.save_data.player_state.spawn_on_spawnpoint = true
+	SceneManager.load_scene(state.next_level)
 
 func interact() -> void:
-	print("locked: ", locked)
-	if not locked:
+	if not state.locked:
 		_open()
 	elif GameController.inventory.get_current_item().item_name == "keys":
 		GameController.inventory.remove_held_item()

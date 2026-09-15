@@ -4,6 +4,7 @@ extends Node
 @export var save_data : SaveResource
 @export var base_save_data : SaveResource
 
+# only use if cant hold a state within an object 
 signal saving
 
 func _ready() -> void:
@@ -14,22 +15,23 @@ func generate_node_uid(n : Node) -> String:
 	return SceneManager.current_scene + "::" + str(n.get_path())
 
 func get_node_state(n : Node):
-	var obj_name := generate_node_uid(n)
-	if obj_name not in save_data.node_states:
+	return get_node_state_by_id(generate_node_uid(n))
+
+func get_node_state_by_id(id : String):
+	if id not in save_data.node_states:
 		return null
-	return save_data.node_states[obj_name]
+	return save_data.node_states[id]
 
 func register_node_state(n : Node, state):
 	var obj_name := generate_node_uid(n)
-	print("registering: ", obj_name)
 	if obj_name in save_data.node_states:
+		push_error("state is already written on obj: ", obj_name)
 		return
 	save_data.node_states[obj_name] = state
 
 func load_save() -> void:
 	if FileAccess.file_exists("user://save_data.tres"):
 		save_data = ResourceLoader.load("user://save_data.tres", "", ResourceLoader.CACHE_MODE_REPLACE) as SaveResource
-	print("loading")
 	_dump_expired()
 
 func _dump_expired() -> void:
