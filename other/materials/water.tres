@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b7ku78avcia5x"]
+
+[ext_resource type="Shader" uid="uid://dgp62mwklbfq6" path="res://other/shaders/water.gdshader" id="1_twjjm"]
+
+[resource]
+render_priority = -1
+shader = ExtResource("1_twjjm")
+shader_parameter/col_a = Color(0.2052626, 0.39844748, 0.77712405, 1)
+shader_parameter/col_b = Color(1, 1, 1, 1)
+shader_parameter/col_extra = Color(1, 1, 1, 1)
+shader_parameter/speed = 0.2
+shader_parameter/scale = 0.3
+shader_parameter/pixel_factor = 0.05

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cdt3c3bmv311i"]
-
-[ext_resource type="PackedScene" uid="uid://bc7glyukffdj4" path="res://scenes/pickupable.tscn" id="1_ufhdc"]
-[ext_resource type="Resource" uid="uid://csdjlt1ij0mox" path="res://other/items/knife_res.tres" id="2_syuqf"]
-
-[node name="Knife" unique_id=296488814 instance=ExtResource("1_ufhdc")]
-item = ExtResource("2_syuqf")

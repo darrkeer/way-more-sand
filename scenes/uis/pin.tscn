@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bq4uufxtp2ww5"]
+
+[ext_resource type="Texture2D" uid="uid://cweqsudjtcror" path="res://sprites/pin.png" id="1_4dicp"]
+[ext_resource type="Material" uid="uid://cubnmx7iqv17t" path="res://other/materials/wobbly_text.tres" id="1_je4dp"]
+[ext_resource type="Script" uid="uid://djvw3b7s5chnf" path="res://scripts/ui/pin.gd" id="2_cgx1h"]
+[ext_resource type="Texture2D" uid="uid://bypba1mn4khne" path="res://sprites/pin_selected.png" id="3_cgx1h"]
+
+[node name="Pin" type="TextureRect" unique_id=1372239277]
+material = ExtResource("1_je4dp")
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_4dicp")
+script = ExtResource("2_cgx1h")
+unseleceted_texture = ExtResource("1_4dicp")
+selected_texture = ExtResource("3_cgx1h")

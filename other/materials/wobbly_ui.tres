@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://kffho0h2sdw"]
+
+[sub_resource type="Shader" id="Shader_bg2xx"]
+code = "shader_type canvas_item;
+
+uniform float jiggle_factor = 1;
+
+float hash(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+void vertex() {
+	float delta = sin(VERTEX.x + TIME);
+	VERTEX.x += delta * jiggle_factor;
+	VERTEX.y += delta * jiggle_factor;
+}
+"
+
+[resource]
+shader = SubResource("Shader_bg2xx")
+shader_parameter/jiggle_factor = 5.0

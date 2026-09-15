@@ -1,24 +1,34 @@
-extends Control
+extends Node
 
-@export var game_ui : Control
+@export var delete_checkboxes : Array[CheckBox]
+@export var other_button : Button
+@export var back_button : Button
 
-func pause_game() -> void:
-	get_tree().paused = true
-	show()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	game_ui.hide()
+@export var other_menu : Control
+@export var main_menu : Control
 
-func resume_game() -> void:
-	get_tree().paused = false
-	hide()
-	game_ui.show()
+func _check_delete(_toggled_on: bool) -> void:
+	var cnt := 0
+	for c in delete_checkboxes:
+		if c.button_pressed:
+			cnt += 1
+	print("cnt: ", cnt)
+	if cnt == delete_checkboxes.size():
+		SaveManager.erase_data()
+
+func _reset_checkboxes() -> void:
+	for c in delete_checkboxes:
+		c.button_pressed = false
 
 func _ready() -> void:
-	resume_game()
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
-		if get_tree().paused:
-			resume_game()
-		else:
-			pause_game()
+	for c in delete_checkboxes:
+		c.toggled.connect(_check_delete)
+	other_button.pressed.connect(func():
+		other_menu.visible = true
+		main_menu.visible = false
+	)
+	back_button.pressed.connect(func():
+		other_menu.visible = false
+		main_menu.visible = true
+	)
+	other_menu.visibility_changed.connect(_reset_checkboxes)

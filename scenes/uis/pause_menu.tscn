@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://cayp6fyel41ev"]
+
+[ext_resource type="Script" uid="uid://beaiihvrtyyde" path="res://scripts/ui/pause_menu.gd" id="1_d6do1"]
+[ext_resource type="Material" uid="uid://cubnmx7iqv17t" path="res://other/materials/wobbly_text.tres" id="1_in8q7"]
+[ext_resource type="Texture2D" uid="uid://ccpyqli1my1dx" path="res://sprites/paper.png" id="2_6vbbd"]
+[ext_resource type="Material" uid="uid://kffho0h2sdw" path="res://other/materials/wobbly_ui.tres" id="3_a7blu"]
+[ext_resource type="Texture2D" uid="uid://mvnv740qayo3" path="res://sprites/empty_hand.png" id="4_istkf"]
+[ext_resource type="LabelSettings" uid="uid://brbdl0vfu4ble" path="res://other/big_text.tres" id="5_uh1pi"]
+[ext_resource type="LabelSettings" uid="uid://2mjr5spq24if" path="res://other/small_text.tres" id="6_fayij"]
+[ext_resource type="Script" uid="uid://cesl4wjhcojfm" path="res://scripts/ui/settings_slider.gd" id="7_cnkas"]
+[ext_resource type="FontFile" uid="uid://b0aeqo2od3ffa" path="res://other/fonts/Ldfcomicsans-jj7l.ttf" id="8_4jliu"]
+[ext_resource type="LabelSettings" uid="uid://bl26o55fjitxi" path="res://other/huge_text.tres" id="9_w348s"]
+
+[sub_resource type="Theme" id="Theme_xn3ie"]
+Button/fonts/font = ExtResource("8_4jliu")
+
+[node name="PauseMenu" type="Control" unique_id=1388131468 node_paths=PackedStringArray("delete_checkboxes", "other_button", "back_button", "other_menu", "main_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d6do1")
+delete_checkboxes = [NodePath("PanelContainer/Other/VBoxContainer/HBoxContainer/CheckBox4"), NodePath("PanelContainer/Other/VBoxContainer/HBoxContainer/CheckBox3"), NodePath("PanelContainer/Other/VBoxContainer/HBoxContainer/CheckBox2"), NodePath("PanelContainer/Other/VBoxContainer/HBoxContainer/CheckBox")]
+other_button = NodePath("PanelContainer/Base/VBoxContainer/Button")
+back_button = NodePath("PanelContainer/Other/Button")
+other_menu = NodePath("PanelContainer/Other")
+main_menu = NodePath("PanelContainer/Base")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2141050391]
+material = ExtResource("1_in8q7")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -125.65906
+offset_right = 127.0
+offset_bottom = 130.34094
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6vbbd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1292640946]
+material = ExtResource("3_a7blu")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -11.659058
+offset_right = 170.0
+offset_bottom = 225.34094
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.0419616
+texture = ExtResource("4_istkf")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=73316186]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -71.0
+offset_right = 49.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.13264503
+
+[node name="Other" type="MarginContainer" parent="PanelContainer" unique_id=236543359]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Other" unique_id=462226096]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Other/VBoxContainer" unique_id=782253170]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="PanelContainer/Other/VBoxContainer/MarginContainer" unique_id=509623729]
+layout_mode = 2
+text = "🔍other🤓"
+label_settings = ExtResource("5_uh1pi")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/Other/VBoxContainer" unique_id=21408062]
+layout_mode = 2
+text = "press all the
+checks to destroy
+save data"
+label_settings = ExtResource("6_fayij")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Other/VBoxContainer" unique_id=1333116432]
+layout_mode = 2
+
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/Other/VBoxContainer/HBoxContainer" unique_id=396036359]
+layout_mode = 2
+
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/Other/VBoxContainer/HBoxContainer" unique_id=2019142261]
+layout_mode = 2
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/Other/VBoxContainer/HBoxContainer" unique_id=1190329035]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/Other/VBoxContainer/HBoxContainer" unique_id=968612566]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/Other" unique_id=740034126]
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_xn3ie")
+theme_override_font_sizes/font_size = 9
+
+[node name="Label" type="Label" parent="PanelContainer/Other/Button" unique_id=452357194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "other🔍"
+label_settings = ExtResource("9_w348s")
+horizontal_alignment = 1
+
+[node name="Base" type="MarginContainer" parent="PanelContainer" unique_id=2108746440]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Base" unique_id=747822486]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Base/VBoxContainer" unique_id=1768959793]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="PanelContainer/Base/VBoxContainer/MarginContainer" unique_id=95025478]
+layout_mode = 2
+text = "🕰️⏸️menu⏸️⏱️"
+label_settings = ExtResource("5_uh1pi")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/Base/VBoxContainer" unique_id=1238114968]
+layout_mode = 2
+text = "sfx🎶🎶"
+label_settings = ExtResource("6_fayij")
+horizontal_alignment = 2
+
+[node name="sfx_slider" type="HSlider" parent="PanelContainer/Base/VBoxContainer" unique_id=236993090]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_cnkas")
+setting_name = "SFX_VOLUME"
+
+[node name="Label2" type="Label" parent="PanelContainer/Base/VBoxContainer" unique_id=1623215099]
+layout_mode = 2
+text = "👂🎼bgm"
+label_settings = ExtResource("6_fayij")
+horizontal_alignment = 2
+
+[node name="BGMSlider" type="HSlider" parent="PanelContainer/Base/VBoxContainer" unique_id=1003783855]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_cnkas")
+setting_name = "BGM_VOLUME"
+
+[node name="Label3" type="Label" parent="PanelContainer/Base/VBoxContainer" unique_id=607642151]
+layout_mode = 2
+text = "🖱️sensitivity🐁"
+label_settings = ExtResource("6_fayij")
+horizontal_alignment = 2
+
+[node name="SensSlider" type="HSlider" parent="PanelContainer/Base/VBoxContainer" unique_id=1662250080]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_cnkas")
+setting_name = "MOUSE_SENS"
+
+[node name="Button" type="Button" parent="PanelContainer/Base/VBoxContainer" unique_id=28460993]
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+theme = SubResource("Theme_xn3ie")
+theme_override_font_sizes/font_size = 9
+
+[node name="Label" type="Label" parent="PanelContainer/Base/VBoxContainer/Button" unique_id=226087968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "other🔍"
+label_settings = ExtResource("9_w348s")
+horizontal_alignment = 1

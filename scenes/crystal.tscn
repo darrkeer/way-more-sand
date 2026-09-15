@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cxl3oc8jfpb1k"]
+
+[ext_resource type="PackedScene" uid="uid://b38ghdfscgi5q" path="res://models/big_crystal.glb" id="1_0mmd5"]
+[ext_resource type="Material" uid="uid://5o0nn4s5q476" path="res://other/shaders/rainbow_crystal.tres" id="2_t4dcj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7222"]
+size = Vector3(1.9140625, 4.631592, 2.0477295)
+
+[node name="Crystal" type="StaticBody3D" unique_id=248434308]
+
+[node name="big_crystal" parent="." unique_id=505369863 instance=ExtResource("1_0mmd5")]
+
+[node name="Cylinder" parent="big_crystal" index="0" unique_id=1526774379]
+material_override = ExtResource("2_t4dcj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2128060278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2774658, -0.047912598)
+shape = SubResource("BoxShape3D_c7222")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=356592098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2510321, 0)
+omni_range = 2.1878393
+
+[editable path="big_crystal"]

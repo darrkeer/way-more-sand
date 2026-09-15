@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bub7ys55osyir"]
+
+[ext_resource type="PackedScene" uid="uid://bc7glyukffdj4" path="res://scenes/items/pickupable.tscn" id="1_ecapx"]
+[ext_resource type="Resource" uid="uid://r3rbfpnar2xf" path="res://other/items/map.tres" id="2_1vrtt"]
+[ext_resource type="Texture2D" uid="uid://da5ndg1o07x2t" path="res://sprites/map_scroll.png" id="2_th8wn"]
+
+[node name="Map" unique_id=296488814 instance=ExtResource("1_ecapx")]
+item = ExtResource("2_1vrtt")
+
+[node name="Sprite3D" parent="." index="1" unique_id=1433403139]
+texture = ExtResource("2_th8wn")

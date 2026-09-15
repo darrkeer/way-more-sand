@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ddecjowil50g1"]
+
+[ext_resource type="Texture2D" uid="uid://cn6hmn3xj0a61" path="res://sprites/single_glow_particle.png" id="1_xl6lr"]
+
+[sub_resource type="Gradient" id="Gradient_imw11"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e7dsb"]
+gradient = SubResource("Gradient_imw11")
+
+[sub_resource type="Curve" id="Curve_mwi3x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k8v5p"]
+curve = SubResource("Curve_mwi3x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65lo0"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 10)
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_k8v5p")
+color_ramp = SubResource("GradientTexture1D_e7dsb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35dfi"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_xl6lr")
+texture_filter = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vaqnf"]
+material = SubResource("StandardMaterial3D_35dfi")
+size = Vector2(0.2, 0.2)
+
+[node name="SparkParticles" type="GPUParticles3D" unique_id=1575563402]
+amount = 100
+lifetime = 5.0
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_65lo0")
+draw_pass_1 = SubResource("QuadMesh_vaqnf")

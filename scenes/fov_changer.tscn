@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmxh2oxqegq8b"]
+
+[ext_resource type="Script" uid="uid://wlrucs2lonml" path="res://scripts/player/fov_change_effect.gd" id="1_rb154"]
+
+[node name="FovChanger" type="Node" unique_id=1899855013]
+script = ExtResource("1_rb154")

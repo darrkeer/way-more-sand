@@ -1,13 +1,17 @@
 extends Node
 
 var player_body : CharacterBody3D
-var inventory : Inventory
+var inventory : InventoryManager
 var interactor : Interactor
-var messages : PopupMessage
 var shake_effects : HandShakeEffects
 var settings : Settings
+var ui : UI
+var cam : CameraController
 
 var clocks : Clocks
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func create_one_shot_timeout(wait_time : float) -> Signal:
 	return get_tree().create_timer(wait_time).timeout

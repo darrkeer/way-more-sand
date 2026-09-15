@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SaveResource" format=3 uid="uid://dcw58y5vnr0ow"]
+
+[ext_resource type="Script" uid="uid://dfdejrbo4qohi" path="res://scripts/interactables/map_state_resource.gd" id="1_vxl05"]
+[ext_resource type="Script" uid="uid://2s5cw1l8xptj" path="res://scripts/saving/base_node_state_resource.gd" id="2_dgk87"]
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="2_yuvir"]
+[ext_resource type="Resource" uid="uid://bcvudhiicxsgc" path="res://other/items/empty_hand.tres" id="3_1o8ew"]
+[ext_resource type="Script" uid="uid://bf7oeb7bhmnme" path="res://scripts/saving/save_resource.gd" id="3_su6ki"]
+[ext_resource type="Script" uid="uid://bvee6t52uta3q" path="res://scripts/saving/inventory_resource.gd" id="4_whd5n"]
+[ext_resource type="Script" uid="uid://c26qwdqg8qep8" path="res://scripts/saving/player_state.gd" id="6_7me72"]
+
+[sub_resource type="Resource" id="Resource_0x3g5"]
+script = ExtResource("1_vxl05")
+metadata/_custom_type_script = "uid://dfdejrbo4qohi"
+
+[sub_resource type="Resource" id="Resource_7weeq"]
+script = ExtResource("4_whd5n")
+items = Array[ExtResource("2_yuvir")]([ExtResource("3_1o8ew")])
+metadata/_custom_type_script = "uid://bvee6t52uta3q"
+
+[sub_resource type="Resource" id="Resource_ym3ik"]
+script = ExtResource("6_7me72")
+time_left = 60
+metadata/_custom_type_script = "uid://c26qwdqg8qep8"
+
+[resource]
+script = ExtResource("3_su6ki")
+PLAYER_MOVE_SPEED = 200.0
+MAX_TIME = 60
+BASE_TIME = 60
+MOUSE_SENS = 0.2
+BGM_VOLUME = 0.5
+SFX_VOLUME = 0.5
+MAPS_DATA = SubResource("Resource_0x3g5")
+inventory = SubResource("Resource_7weeq")
+player_state = SubResource("Resource_ym3ik")
+metadata/_custom_type_script = "uid://bf7oeb7bhmnme"

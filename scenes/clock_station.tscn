@@ -4,6 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://oi2pdcvts5fl" path="res://models/clock_station.glb" id="2_asrvx"]
 [ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_uddpr"]
 
+[sub_resource type="Resource" id="Resource_ifefg"]
+script = ExtResource("2_uddpr")
+text = "SAVED"
+show_time = 5.0
+priority = 2
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
 [sub_resource type="Resource" id="Resource_uvdjg"]
 script = ExtResource("2_uddpr")
 text = "🕰️⬈⬈"
@@ -15,6 +22,7 @@ size = Vector3(2.3720093, 4.2143555, 2.225586)
 
 [node name="ClockStation" type="StaticBody3D" unique_id=1152516515]
 script = ExtResource("1_ldqa0")
+saving_hint = SubResource("Resource_ifefg")
 hint = SubResource("Resource_uvdjg")
 
 [node name="clock_station" parent="." unique_id=639189914 instance=ExtResource("2_asrvx")]

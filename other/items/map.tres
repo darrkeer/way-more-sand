@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MapResource" format=3 uid="uid://r3rbfpnar2xf"]
+
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="1_f1ra3"]
+[ext_resource type="Script" uid="uid://dvgft15jodkc" path="res://scripts/interactables/map_resource.gd" id="1_p0v1e"]
+[ext_resource type="Texture2D" uid="uid://ceydugmk8ioug" path="res://sprites/hand_with_map.png" id="2_hjtef"]
+
+[sub_resource type="Resource" id="Resource_fl6n8"]
+script = ExtResource("1_f1ra3")
+text = "🖱️X🧭!!"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[resource]
+script = ExtResource("1_p0v1e")
+item_name = "map"
+image = ExtResource("2_hjtef")
+pickup_sound_name = "paper1"
+hint_message = SubResource("Resource_fl6n8")
+metadata/_custom_type_script = "uid://dvgft15jodkc"

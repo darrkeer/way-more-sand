@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://dopq7ifk23i8f"]
+
+[ext_resource type="Script" uid="uid://ub072xxmvsmx" path="res://scripts/clocks.gd" id="4_ks3xe"]
+[ext_resource type="Texture2D" uid="uid://dgiw4unj354o0" path="res://sprites/hand.png" id="5_rwwl2"]
+[ext_resource type="Texture2D" uid="uid://bar2ccxgg87re" path="res://sprites/clocks.png" id="6_ad4or"]
+[ext_resource type="Texture2D" uid="uid://bi4hriake0vac" path="res://sprites/clock_progress.png" id="7_x088b"]
+[ext_resource type="Script" uid="uid://ctxrwss8vuk8g" path="res://scripts/states/state_machine.gd" id="8_ulvtp"]
+[ext_resource type="Script" uid="uid://cfu0mnug51tvs" path="res://scripts/states/state_with_animation.gd" id="9_0ldly"]
+[ext_resource type="Script" uid="uid://bne3ipyithkfu" path="res://scripts/player/hand_shake_effect.gd" id="10_loua0"]
+[ext_resource type="PackedScene" uid="uid://bmxh2oxqegq8b" path="res://scenes/fov_changer.tscn" id="11_qsi2w"]
+
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clocks:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6.817903]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Item:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f1ej7"]
+resource_name = "damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clocks:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3989619),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FovChanger")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [67.0, 0.2],
+"method": &"change_fov"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ur7pv"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clocks:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 10.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4566667, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.0]
+}
+
+[sub_resource type="Animation" id="Animation_oprun"]
+resource_name = "use"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 50), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clocks:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 7.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clocks:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 15.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Item:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666669, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 15.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qa3y"]
+_data = {
+&"RESET": SubResource("Animation_d2wvv"),
+&"damage": SubResource("Animation_f1ej7"),
+&"idle": SubResource("Animation_ur7pv"),
+&"use": SubResource("Animation_oprun"),
+&"walk": SubResource("Animation_3v2ag")
+}
+
+[node name="HUDMenu" type="Control" unique_id=491331264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hands" type="Control" parent="." unique_id=2028856367]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item" type="Control" parent="Hands" unique_id=535637670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hands/Item" unique_id=1275487184]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Clocks" type="Control" parent="Hands" unique_id=1110701338 node_paths=PackedStringArray("progress_bar")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ks3xe")
+progress_bar = NodePath("TextureRect/TextureProgressBar")
+
+[node name="TextureRect" type="TextureRect" parent="Hands/Clocks" unique_id=1198151217]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 128.0
+grow_vertical = 0
+texture = ExtResource("5_rwwl2")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Hands/Clocks/TextureRect" unique_id=1526059305]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -151.0
+offset_right = 135.0
+offset_bottom = -23.0
+grow_vertical = 0
+value = 89.0
+fill_mode = 4
+radial_center_offset = Vector2(0, 20)
+texture_under = ExtResource("6_ad4or")
+texture_progress = ExtResource("7_x088b")
+
+[node name="StateMachine" type="Node" parent="Hands" unique_id=62290933]
+script = ExtResource("8_ulvtp")
+initial_state = "idle"
+metadata/_custom_type_script = "uid://ctxrwss8vuk8g"
+
+[node name="Walk" type="Node" parent="Hands/StateMachine" unique_id=921703696 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_0ldly")
+animation_player = NodePath("../../AnimationPlayer")
+animation_name = "walk"
+state_name = "walk"
+metadata/_custom_type_script = "uid://b0m1lsqidum8"
+
+[node name="Idle" type="Node" parent="Hands/StateMachine" unique_id=1750133419 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_0ldly")
+animation_player = NodePath("../../AnimationPlayer")
+animation_name = "idle"
+state_name = "idle"
+metadata/_custom_type_script = "uid://b0m1lsqidum8"
+
+[node name="Damage" type="Node" parent="Hands/StateMachine" unique_id=570435035 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_0ldly")
+animation_player = NodePath("../../AnimationPlayer")
+animation_name = "damage"
+state_name = "damage"
+
+[node name="Use" type="Node" parent="Hands/StateMachine" unique_id=1416373591 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_0ldly")
+animation_player = NodePath("../../AnimationPlayer")
+animation_name = "use"
+state_name = "use"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hands" unique_id=300771908 node_paths=PackedStringArray("state_machine")]
+libraries/ = SubResource("AnimationLibrary_7qa3y")
+script = ExtResource("10_loua0")
+state_machine = NodePath("../StateMachine")
+
+[node name="FovChanger" parent="." unique_id=1899855013 instance=ExtResource("11_qsi2w")]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dfjjglryku2vy" path="res://scenes/levels/level_1.tscn" id="3_b81s6"]
 [ext_resource type="PackedScene" uid="uid://benj5neyt7mt3" path="res://scenes/levels/level_2.tscn" id="4_h7lqg"]
 [ext_resource type="PackedScene" uid="uid://bmybalm4c6umh" path="res://scenes/levels/final_level.tscn" id="5_q7wi7"]
-[ext_resource type="PackedScene" uid="uid://8s8fnpoj51yl" path="res://trenchbroom/models/1_level.tscn" id="6_6k21d"]
+[ext_resource type="PackedScene" uid="uid://8s8fnpoj51yl" path="res://scenes/levels/new_level_1.tscn" id="6_6k21d"]
 
 [sub_resource type="Gradient" id="Gradient_p1hsj"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)

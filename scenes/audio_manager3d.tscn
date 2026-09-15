@@ -29,8 +29,14 @@
 [ext_resource type="AudioStream" uid="uid://cc0rf0ypynimc" path="res://sounds/fall.ogg" id="26_oo7ui"]
 [ext_resource type="AudioStream" uid="uid://dqrpn5vgrk6t6" path="res://sounds/pickup2.ogg" id="27_sbnjv"]
 [ext_resource type="AudioStream" uid="uid://ble44xlqo4n5u" path="res://sounds/pickup1.ogg" id="28_i2sqn"]
+[ext_resource type="AudioStream" uid="uid://d1ddsht7w1gif" path="res://sounds/crystal_break.ogg" id="29_sbnjv"]
+[ext_resource type="AudioStream" uid="uid://c3qataxq4uj1b" path="res://sounds/paper1.ogg" id="30_4u514"]
+[ext_resource type="AudioStream" uid="uid://dnpefxbjbfumr" path="res://sounds/paper2.ogg" id="31_65eir"]
+[ext_resource type="AudioStream" uid="uid://boq0prlkri06m" path="res://sounds/pin1.ogg" id="32_u8ebk"]
+[ext_resource type="AudioStream" uid="uid://cg3s2cpgua4f0" path="res://sounds/pin2.ogg" id="33_65eir"]
 
 [node name="AudioManager3D" type="Node" unique_id=481763374]
+process_mode = 3
 script = ExtResource("1_ew6c1")
 sounds = Dictionary[String, AudioStream]({
 "balloon": ExtResource("27_sbnjv"),
@@ -42,6 +48,7 @@ sounds = Dictionary[String, AudioStream]({
 "clock3": ExtResource("4_fot4h"),
 "clock4": ExtResource("5_o0r0u"),
 "clocks_add": ExtResource("9_o0r0u"),
+"crystal_break": ExtResource("29_sbnjv"),
 "damage": ExtResource("15_qh2nk"),
 "door": ExtResource("10_k86d5"),
 "fall": ExtResource("26_oo7ui"),
@@ -55,6 +62,10 @@ sounds = Dictionary[String, AudioStream]({
 "knife_pickup": ExtResource("6_fot4h"),
 "knight_attack": ExtResource("14_ckenc"),
 "knight_damage": ExtResource("19_o6w00"),
+"paper1": ExtResource("30_4u514"),
+"paper2": ExtResource("31_65eir"),
+"pin1": ExtResource("32_u8ebk"),
+"pin2": ExtResource("33_65eir"),
 "remote": ExtResource("28_i2sqn"),
 "sand_pickup": ExtResource("8_k86d5"),
 "tv_disable": ExtResource("24_oo7ui"),

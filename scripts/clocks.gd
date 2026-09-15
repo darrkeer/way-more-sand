@@ -1,14 +1,12 @@
 class_name Clocks
 extends Node
 
-@export var stats : PlayerStats
-
 @export var progress_bar : TextureProgressBar
 
 var time_left : int
 
 func add_time(amount : int) -> void:
-	time_left = clamp(time_left + amount, 0, stats.MAX_TIME)
+	time_left = clamp(time_left + amount, 0, Settings.get_max_time())
 	_update_bar()
 
 func decrease_time(amount : int) -> void:
@@ -23,8 +21,13 @@ func _update_bar() -> void:
 func _ready() -> void:
 	GameController.clocks = self
 	GameController.create_repeat_timeout(1).connect(_on_timeout)
-	time_left = stats.BASE_TIME
-	progress_bar.max_value = stats.MAX_TIME
+	time_left = SaveManager.save_data.player_state.time_left
+	progress_bar.max_value = Settings.get_max_time()
+	progress_bar.value = time_left
+	
+	SaveManager.saving.connect(func():
+		SaveManager.save_data.player_state.time_left = time_left	
+	)
 
 func get_random_clock_sound() -> String:
 	return "clock" + str(randi_range(1, 4))

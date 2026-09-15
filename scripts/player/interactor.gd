@@ -14,7 +14,7 @@ func update_interacting_item(item : Interactable) -> void:
 	interacting_item = item
 	print("new interacting item : %s" % item.name)
 	if interacting_item.hint:
-		GameController.messages.make_popup(interacting_item.hint)
+		HintManager.make_popup(interacting_item.hint)
 
 func remove_interacting_item() -> void:
 	if interacting_item == null:

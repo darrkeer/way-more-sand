@@ -28,6 +28,7 @@ func play_sound_on_pos(pos : Vector3, sound_name : String) -> AudioPlayer3D:
 	if sound_name not in sounds:
 		push_error("can't find sound with name '%s'" % sound_name)
 		return
+	print("playing: ", sound_name)
 	var sound := sounds[sound_name]
 	for s in streams:
 		if s.can_play:

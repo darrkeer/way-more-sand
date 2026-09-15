@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cl1co1ve3iwvn"]
+
+[ext_resource type="Script" uid="uid://dhtj3dgopge8l" path="res://scripts/saving/save_manager.gd" id="1_xvxmv"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_0x3g5"]
+[ext_resource type="Script" uid="uid://cknu20ec2va0h" path="res://scripts/dump_save_data_tool.gd" id="4_0x3g5"]
+[ext_resource type="Script" uid="uid://dfdejrbo4qohi" path="res://scripts/interactables/map_state_resource.gd" id="4_65jsq"]
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="5_8cayb"]
+[ext_resource type="Script" uid="uid://bvee6t52uta3q" path="res://scripts/saving/inventory_resource.gd" id="6_qc5on"]
+[ext_resource type="Script" uid="uid://2s5cw1l8xptj" path="res://scripts/saving/base_node_state_resource.gd" id="7_fwcsl"]
+[ext_resource type="Script" uid="uid://c26qwdqg8qep8" path="res://scripts/saving/player_state.gd" id="8_mbsjv"]
+[ext_resource type="Script" uid="uid://bf7oeb7bhmnme" path="res://scripts/saving/save_resource.gd" id="9_lwat7"]
+[ext_resource type="Resource" uid="uid://bcvudhiicxsgc" path="res://other/items/empty_hand.tres" id="11_ppxlg"]
+
+[sub_resource type="Resource" id="Resource_6k21d"]
+script = ExtResource("2_0x3g5")
+text = "SAVING"
+show_time = 5.0
+priority = 2
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[sub_resource type="Resource" id="Resource_d4pbv"]
+script = ExtResource("4_65jsq")
+metadata/_custom_type_script = "uid://dfdejrbo4qohi"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qis2p"]
+load_path = "res://.godot/imported/empty.png-a16ed79ceb169765828b2799aceb75f2.ctex"
+
+[sub_resource type="Resource" id="Resource_u177u"]
+script = ExtResource("5_8cayb")
+item_name = "empty"
+image = SubResource("CompressedTexture2D_qis2p")
+metadata/_custom_type_script = "uid://dbxp5x0u8xc0n"
+
+[sub_resource type="Resource" id="Resource_3k3xu"]
+script = ExtResource("6_qc5on")
+items = Array[ExtResource("5_8cayb")]([SubResource("Resource_u177u")])
+metadata/_custom_type_script = "uid://bvee6t52uta3q"
+
+[sub_resource type="Resource" id="Resource_yxsbe"]
+script = ExtResource("8_mbsjv")
+time_left = 60
+metadata/_custom_type_script = "uid://c26qwdqg8qep8"
+
+[sub_resource type="Resource" id="Resource_ht0sr"]
+script = ExtResource("9_lwat7")
+PLAYER_MOVE_SPEED = 200.0
+MAX_TIME = 60
+MOUSE_SENS = 0.2
+BGM_VOLUME = 0.5
+SFX_VOLUME = 0.5
+MAPS_DATA = SubResource("Resource_d4pbv")
+inventory = SubResource("Resource_3k3xu")
+player_state = SubResource("Resource_yxsbe")
+metadata/_custom_type_script = "uid://bf7oeb7bhmnme"
+
+[sub_resource type="Resource" id="Resource_0x3g5"]
+script = ExtResource("4_65jsq")
+metadata/_custom_type_script = "uid://dfdejrbo4qohi"
+
+[sub_resource type="Resource" id="Resource_7weeq"]
+script = ExtResource("6_qc5on")
+items = Array[ExtResource("5_8cayb")]([ExtResource("11_ppxlg")])
+metadata/_custom_type_script = "uid://bvee6t52uta3q"
+
+[sub_resource type="Resource" id="Resource_ym3ik"]
+script = ExtResource("8_mbsjv")
+time_left = 60
+metadata/_custom_type_script = "uid://c26qwdqg8qep8"
+
+[sub_resource type="Resource" id="Resource_m0aui"]
+script = ExtResource("9_lwat7")
+PLAYER_MOVE_SPEED = 200.0
+MAX_TIME = 60
+MOUSE_SENS = 0.2
+BGM_VOLUME = 0.5
+SFX_VOLUME = 0.5
+MAPS_DATA = SubResource("Resource_0x3g5")
+inventory = SubResource("Resource_7weeq")
+player_state = SubResource("Resource_ym3ik")
+metadata/_custom_type_script = "uid://bf7oeb7bhmnme"
+
+[node name="SaveManager" type="Node" unique_id=1760626231]
+script = ExtResource("1_xvxmv")
+saving_hint = SubResource("Resource_6k21d")
+base_save_data = SubResource("Resource_ht0sr")
+
+[node name="DumpTool" type="Node" parent="." unique_id=985814386]
+script = ExtResource("4_0x3g5")
+save_data = SubResource("Resource_m0aui")

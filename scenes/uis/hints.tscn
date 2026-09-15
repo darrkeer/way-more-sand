@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b3ppj4kwhl1ds"]
+
+[ext_resource type="Script" uid="uid://bg3jyvtykpopg" path="res://scripts/ui/popup_message.gd" id="1_j462m"]
+[ext_resource type="Shader" uid="uid://b5vqnvfhplkm4" path="res://other/shaders/wobbly_ui.gdshader" id="2_5c6eb"]
+[ext_resource type="LabelSettings" uid="uid://bl26o55fjitxi" path="res://other/huge_text.tres" id="3_qgp4r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjx4a"]
+shader = ExtResource("2_5c6eb")
+shader_parameter/jiggle_factor = 1.0
+
+[node name="Hints" type="Control" unique_id=715881919 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j462m")
+label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=189023443]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1939803194]
+material = SubResource("ShaderMaterial_pjx4a")
+layout_mode = 2
+size_flags_horizontal = 4
+label_settings = ExtResource("3_qgp4r")

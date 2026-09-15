@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8dxtlhnsnmgu"]
+
+[ext_resource type="Material" uid="uid://b7ku78avcia5x" path="res://other/materials/water.tres" id="1_wul0m"]
+[ext_resource type="PackedScene" uid="uid://d1ventg65gban" path="res://models/water_plane.glb" id="2_cqlem"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xbkkw"]
+subdivide_width = 8
+
+[node name="WaterTest" type="Node3D" unique_id=533906467]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=581806979]
+material_override = ExtResource("1_wul0m")
+mesh = SubResource("PlaneMesh_xbkkw")
+
+[node name="water_plane" parent="." unique_id=594081653 instance=ExtResource("2_cqlem")]
+visible = false
+
+[node name="Plane" parent="water_plane" index="0" unique_id=1020664581]
+material_override = ExtResource("1_wul0m")
+
+[editable path="water_plane"]

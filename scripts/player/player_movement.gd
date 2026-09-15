@@ -4,8 +4,6 @@ const MOVE_SOUND_DELAY = 0.5
 const JUMP_FORCE = 2
 const BALOON_JUMP_FORCE = 5
 
-@export var stats : PlayerStats
-
 var was_on_floor : bool
 
 func _get_random_walk_sound() -> String:
@@ -17,11 +15,16 @@ func _ready() -> void:
 		if velocity != Vector3.ZERO and is_on_floor():
 			AudioManager3D.play_sound_on_pos(global_position, _get_random_walk_sound())
 	)
+	SaveManager.saving.connect(func():
+		SaveManager.save_data.player_state.save_pos()
+	)
+	if SaveManager.save_data.player_state and SaveManager.save_data.player_state.get_pos():
+		transform = SaveManager.save_data.player_state.get_pos()
 
 func _physics_process(delta: float) -> void:
 	var hor := Input.get_axis("move_left", "move_right")
 	var ver := Input.get_axis("move_up", "move_down")
-	var move_vec := global_basis * Vector3(hor, 0, ver) * delta * stats.MOVE_SPEED
+	var move_vec : Vector3 = global_basis * Vector3(hor, 0, ver) * delta * Settings.get_player_move_speed()
 	
 	velocity.x = move_vec.x
 	velocity.z = move_vec.z

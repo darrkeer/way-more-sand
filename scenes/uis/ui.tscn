@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b8c6q0sexks1l"]
+
+[ext_resource type="Texture2D" uid="uid://ooc7q0w55wtc" path="res://sprites/empty.png" id="1_yev5y"]
+[ext_resource type="Script" uid="uid://8jmf8k8lbc0i" path="res://scripts/ui/ui.gd" id="2_gdt2y"]
+[ext_resource type="Shader" uid="uid://cnrcp3lqwhl0f" path="res://other/shaders/ui_noise.gdshader" id="3_7h3c4"]
+[ext_resource type="PackedScene" uid="uid://tb8lcyflo5id" path="res://scenes/uis/map_menu.tscn" id="3_wm3ai"]
+[ext_resource type="PackedScene" uid="uid://dopq7ifk23i8f" path="res://scenes/uis/hud.tscn" id="5_uiaqr"]
+[ext_resource type="PackedScene" uid="uid://cayp6fyel41ev" path="res://scenes/uis/pause_menu.tscn" id="6_g4cdr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 2
+
+[sub_resource type="Theme" id="Theme_xlq6p"]
+HSlider/icons/grabber = ExtResource("1_yev5y")
+HSlider/icons/grabber_disabled = ExtResource("1_yev5y")
+HSlider/icons/grabber_highlight = ExtResource("1_yev5y")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_xlq6p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sddj4"]
+shader = ExtResource("3_7h3c4")
+shader_parameter/scale = 0.2
+shader_parameter/opacity = 0.5
+shader_parameter/base_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+
+[node name="UI" type="Control" unique_id=1074823981 node_paths=PackedStringArray("back_panel", "menus", "hud")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xlq6p")
+script = ExtResource("2_gdt2y")
+back_panel = NodePath("Panel")
+menus = {
+"map": NodePath("MapUI"),
+"pause": NodePath("Pause")
+}
+hud = NodePath("HUD")
+
+[node name="Panel" type="Panel" parent="." unique_id=2085508226]
+material = SubResource("ShaderMaterial_sddj4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapUI" parent="." unique_id=1720532922 instance=ExtResource("3_wm3ai")]
+visible = false
+layout_mode = 1
+
+[node name="HUD" parent="." unique_id=491331264 instance=ExtResource("5_uiaqr")]
+visible = false
+layout_mode = 1
+
+[node name="Pause" parent="." unique_id=1388131468 instance=ExtResource("6_g4cdr")]
+visible = false
+layout_mode = 1

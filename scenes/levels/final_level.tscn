@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7tetrtkvnvte" path="res://scenes/player.tscn" id="2_ifx55"]
 [ext_resource type="Material" uid="uid://drvc4eacmyj6i" path="res://other/materials/chessboard2.tres" id="3_e446s"]
 [ext_resource type="PackedScene" uid="uid://cs0b8uwaeps73" path="res://scenes/non_interactable_door.tscn" id="4_jwk10"]
-[ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/sand.tscn" id="5_3xiv5"]
+[ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/items/sand.tscn" id="5_3xiv5"]
 [ext_resource type="FontFile" uid="uid://der680wf3swvc" path="res://other/fonts/NotoColorEmoji-Regular.ttf" id="5_ifx55"]
 [ext_resource type="PackedScene" uid="uid://buyu01fa4sgfc" path="res://scenes/clock_station.tscn" id="6_rqhej"]
 
