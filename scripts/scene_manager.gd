@@ -9,13 +9,15 @@ const EFFECT_TIME = 1.0
 
 var current_scene : String
 
-func _ready() -> void:
-	await get_tree().process_frame
+func start_from_last_save() -> void:
+	SaveManager.load_save()
 	if SaveManager.save_data.player_state.spawn_scene:
-		current_scene = SaveManager.save_data.player_state.spawn_scene
+		load_scene(SaveManager.save_data.player_state.spawn_scene)
 	else:
-		current_scene = initial_scene
-	load_scene(current_scene)
+		load_scene(initial_scene)
+
+func _ready() -> void:
+	start_from_last_save()
 
 func load_scene(scene_name : String) -> void:
 	if scene_name not in scenes:
@@ -23,6 +25,7 @@ func load_scene(scene_name : String) -> void:
 		return
 	
 	get_tree().paused = true
+	print("PAUSED")
 	await effect_in()
 	get_tree().change_scene_to_packed(scenes[scene_name])
 	current_scene = scene_name	

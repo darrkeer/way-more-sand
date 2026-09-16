@@ -14,6 +14,7 @@ func enter(options := {}) -> void:
 func exit() -> void:
 	super()
 	
+	print("HERE")
 	if base.distance_to_player() < base.DAMAGE_RANGE and not base.just_damaged:
 		GameController.clocks.decrease_time(base.BASE_DAMAGE)
 	AudioManager3D.play_sound_on_pos(base.global_position, "knight_attack")

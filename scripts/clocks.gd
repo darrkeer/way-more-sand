@@ -5,6 +5,10 @@ extends Node
 
 var state : PlayerStateResource
 
+func _check_time() -> void:
+	if state.time_left <= 0:
+		SceneManager.start_from_last_save()
+
 func add_time(amount : int) -> void:
 	state.time_left = clamp(state.time_left + amount, 0, Settings.get_max_time())
 	_update_bar()
@@ -14,6 +18,7 @@ func decrease_time(amount : int) -> void:
 	_update_bar()
 	AudioManager3D.play_sound_on_pos(GameController.player_body.global_position, "damage")
 	GameController.shake_effects.make_damage_effect()
+	_check_time()
 
 func _update_bar() -> void:
 	progress_bar.value = state.time_left
@@ -39,5 +44,4 @@ func _on_timeout() -> void:
 		get_random_clock_sound()
 	)
 	_update_bar()
-	if state.time_left <= 0:
-		SceneManager.restart_scene()
+	_check_time()

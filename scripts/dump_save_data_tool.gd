@@ -9,7 +9,7 @@ func generate_save_file() -> void:
 
 @export_tool_button("Dump save data") var dump_save_file_a = dump_save_file
 func dump_save_file() -> void:
-	var res := ResourceLoader.load("user://save_data.tres", "", ResourceLoader.CACHE_MODE_REPLACE) as SaveResource
+	var res := ResourceLoader.load("user://save_data.tres", "", ResourceLoader.CACHE_MODE_IGNORE) as SaveResource
 	if res == null:
 		push_warning("file not found")
 		return

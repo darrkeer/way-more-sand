@@ -8,7 +8,7 @@ extends Node
 signal saving
 
 func _ready() -> void:
-	save_data = base_save_data
+	save_data = base_save_data.duplicate(true)
 	load_save()
 
 func generate_node_uid(n : Node) -> String:
@@ -31,7 +31,11 @@ func register_node_state(n : Node, state):
 
 func load_save() -> void:
 	if FileAccess.file_exists("user://save_data.tres"):
-		save_data = ResourceLoader.load("user://save_data.tres", "", ResourceLoader.CACHE_MODE_REPLACE) as SaveResource
+		print("reloaded from file")
+		save_data = ResourceLoader.load("user://save_data.tres", "", ResourceLoader.CACHE_MODE_IGNORE) as SaveResource
+	else:
+		print("reloaded from base")
+		save_data = base_save_data.duplicate(true)
 	_dump_expired()
 
 func _dump_expired() -> void:
@@ -40,13 +44,13 @@ func _dump_expired() -> void:
 		print(n, ": expired = ", save_data.node_states[n].expired)
 
 func save() -> void:
+	print("SAVING")
 	saving.emit()
 	ResourceSaver.save(save_data, "user://save_data.tres")
 	HintManager.make_popup(saving_hint)
 
 func erase_data() -> void:
-	# TODO: isnt working
 	if FileAccess.file_exists("user://save_data.tres"):
 		DirAccess.remove_absolute("user://save_data.tres")
-	save_data = base_save_data
+	save_data = base_save_data.duplicate(true)
 	SceneManager.load_scene(SceneManager.initial_scene)

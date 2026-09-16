@@ -14,7 +14,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func create_one_shot_timeout(wait_time : float) -> Signal:
-	return get_tree().create_timer(wait_time).timeout
+	return get_tree().create_timer(wait_time, false).timeout
 
 func create_repeat_timeout(wait_time : float) -> Signal:
 	var timer := Timer.new()
