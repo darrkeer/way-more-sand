@@ -16,9 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://cdt3c3bmv311i" path="res://scenes/items/knife.tscn" id="14_ifefg"]
 [ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/items/sand.tscn" id="15_mpylh"]
 [ext_resource type="PackedScene" uid="uid://duyvxmqhhw315" path="res://scenes/door.tscn" id="16_1m25o"]
+[ext_resource type="PackedScene" uid="uid://b4ujcendsx1te" path="res://scenes/platform.tscn" id="16_qitha"]
 [ext_resource type="PackedScene" uid="uid://dk7m7qt7fkm07" path="res://scenes/items/keys.tscn" id="17_c4056"]
 [ext_resource type="Script" uid="uid://54n0cuyiewqy" path="res://scripts/saving/door_state_resource.gd" id="17_kv4j3"]
 [ext_resource type="PackedScene" uid="uid://0kl08qlsj4su" path="res://scenes/spawnpoint.tscn" id="18_ekc1m"]
+[ext_resource type="PackedScene" uid="uid://dgcrh06hbg77a" path="res://scenes/interactables/plate.tscn" id="19_qkakf"]
+[ext_resource type="PackedScene" uid="uid://dmh78owyh7k1p" path="res://scenes/items/remote.tscn" id="20_qitha"]
+[ext_resource type="PackedScene" uid="uid://ululil0uyw0m" path="res://scenes/items/pinwheel.tscn" id="23_ytqj6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_iylcx"]
 _surfaces = [{
@@ -435,6 +439,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9713218, 4.320001, -3.0928
 [node name="Sand" parent="." unique_id=45309082 instance=ExtResource("15_mpylh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8230057, 4.319999, -13.314287)
 
+[node name="PlatformNode2" type="Node3D" parent="." unique_id=149090082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.308024, 3.9159994, -20.515656)
+
+[node name="PlatformNode1" type="Node3D" parent="." unique_id=674663102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4181976, 3.9159994, -15.721766)
+
+[node name="Platform" parent="." unique_id=383330169 node_paths=PackedStringArray("points") instance=ExtResource("16_qitha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4181976, 3.9159994, -15.721766)
+points = [NodePath("../PlatformNode1"), NodePath("../PlatformNode2")]
+
+[node name="Plate" parent="." unique_id=803023864 node_paths=PackedStringArray("platforms") instance=ExtResource("19_qkakf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.601247, 3.7567391, -25.97733)
+platforms = [NodePath("../Platform")]
+
+[node name="remote" parent="." unique_id=60115909 instance=ExtResource("20_qitha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.496391, 4.32, -7.8643007)
+
 [node name="Door" parent="." unique_id=832983434 instance=ExtResource("16_1m25o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.434639, 4.2930913, -7.404415)
 state = SubResource("Resource_tuyoq")
@@ -444,3 +465,6 @@ transform = Transform3D(-0.9956992, 0, 0.09264501, 0, 1, 0, -0.09264501, 0, -0.9
 
 [node name="Keys" parent="." unique_id=1531478690 instance=ExtResource("17_c4056")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.729271, 4.32, -11.245253)
+
+[node name="Pinwheel" parent="." unique_id=1599128910 instance=ExtResource("23_ytqj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.046159, 4.320001, -13.772529)

@@ -19,7 +19,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var hor := Input.get_axis("move_left", "move_right")
 	var ver := Input.get_axis("move_up", "move_down")
-	var move_vec : Vector3 = global_basis * Vector3(hor, 0, ver) * delta * Settings.get_player_move_speed()
+	
+	var speed_mod = Settings.get_player_move_speed()
+	if GameController.inventory.get_current_item().item_name == "pinwheel":
+		speed_mod *= 2
+	var move_vec : Vector3 = global_basis * Vector3(hor, 0, ver).normalized() * delta * speed_mod
 	
 	velocity.x = move_vec.x
 	velocity.z = move_vec.z

@@ -34,6 +34,10 @@
 [ext_resource type="AudioStream" uid="uid://dnpefxbjbfumr" path="res://sounds/paper2.ogg" id="31_65eir"]
 [ext_resource type="AudioStream" uid="uid://boq0prlkri06m" path="res://sounds/pin1.ogg" id="32_u8ebk"]
 [ext_resource type="AudioStream" uid="uid://cg3s2cpgua4f0" path="res://sounds/pin2.ogg" id="33_65eir"]
+[ext_resource type="AudioStream" uid="uid://clbp6n04uk01e" path="res://sounds/rumble.ogg" id="34_u8ebk"]
+[ext_resource type="AudioStream" uid="uid://ce8h2apdta74n" path="res://sounds/radar.ogg" id="35_1hmvm"]
+[ext_resource type="AudioStream" uid="uid://47d0am7fyqit" path="res://sounds/king_step1.ogg" id="36_h5b6f"]
+[ext_resource type="AudioStream" uid="uid://26npenq0gwof" path="res://sounds/king_step2.ogg" id="37_1c41c"]
 
 [node name="AudioManager3D" type="Node" unique_id=481763374]
 process_mode = 3
@@ -56,6 +60,8 @@ sounds = Dictionary[String, AudioStream]({
 "footstep2": ExtResource("21_na56g"),
 "footstep3": ExtResource("22_i442c"),
 "keys_pickup": ExtResource("7_o0r0u"),
+"king1": ExtResource("36_h5b6f"),
+"king2": ExtResource("37_1c41c"),
 "knife_hit1": ExtResource("16_smi1f"),
 "knife_hit2": ExtResource("17_o6w00"),
 "knife_hit3": ExtResource("18_0lldi"),
@@ -66,7 +72,9 @@ sounds = Dictionary[String, AudioStream]({
 "paper2": ExtResource("31_65eir"),
 "pin1": ExtResource("32_u8ebk"),
 "pin2": ExtResource("33_65eir"),
+"radar": ExtResource("35_1hmvm"),
 "remote": ExtResource("28_i2sqn"),
+"rumble": ExtResource("34_u8ebk"),
 "sand_pickup": ExtResource("8_k86d5"),
 "tv_disable": ExtResource("24_oo7ui"),
 "tv_enable": ExtResource("23_6cge1"),

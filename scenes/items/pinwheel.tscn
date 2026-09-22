@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ululil0uyw0m"]
+
+[ext_resource type="PackedScene" uid="uid://bc7glyukffdj4" path="res://scenes/items/pickupable.tscn" id="1_obq6u"]
+[ext_resource type="Resource" uid="uid://dqexdiix2b57g" path="res://other/items/pinwheel.tres" id="2_qj11e"]
+[ext_resource type="Texture2D" uid="uid://c2jonrwefafne" path="res://sprites/pinwheel.png" id="3_6553i"]
+
+[node name="Pinwheel" unique_id=296488814 instance=ExtResource("1_obq6u")]
+item = ExtResource("2_qj11e")
+
+[node name="Sprite3D" parent="." index="1" unique_id=1433403139]
+texture = ExtResource("3_6553i")

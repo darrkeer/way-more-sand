@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b4ujcendsx1te"]
+
+[ext_resource type="PackedScene" uid="uid://dj7ll7te2rs" path="res://models/platform.glb" id="1_ba0x2"]
+[ext_resource type="Script" uid="uid://c61l22py1rf5c" path="res://scripts/interactables/platform.gd" id="1_nlgqw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7222"]
+size = Vector3(1.4111328, 0.2866211, 1.4016418)
+
+[node name="Platform" type="AnimatableBody3D" unique_id=995827216]
+script = ExtResource("1_nlgqw")
+time_for_one_move = 5.0
+
+[node name="platform" parent="." unique_id=947344466 instance=ExtResource("1_ba0x2")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=978438935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0034179688, -0.01586914, -0.0019989014)
+shape = SubResource("BoxShape3D_c7222")

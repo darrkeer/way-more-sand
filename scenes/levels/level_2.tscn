@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://buyu01fa4sgfc" path="res://scenes/clock_station.tscn" id="12_ndlae"]
 [ext_resource type="Material" uid="uid://uvfa4ky7xtro" path="res://other/materials/mossy_coble.tres" id="12_sibr7"]
 [ext_resource type="PackedScene" uid="uid://cdt3c3bmv311i" path="res://scenes/items/knife.tscn" id="12_tv7cl"]
-[ext_resource type="PackedScene" uid="uid://8uvcb7pl884u" path="res://scenes/knight.tscn" id="18_lkn2k"]
+[ext_resource type="PackedScene" uid="uid://8uvcb7pl884u" path="res://scenes/enemies/knight.tscn" id="18_lkn2k"]
 [ext_resource type="Script" uid="uid://cki4wtpgqpru6" path="res://scripts/death_border.gd" id="19_p4se4"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b1xnl"]

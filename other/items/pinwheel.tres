@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dqexdiix2b57g"]
+
+[ext_resource type="Script" uid="uid://dbxp5x0u8xc0n" path="res://scripts/interactables/item_resource.gd" id="1_1ho3e"]
+[ext_resource type="Texture2D" uid="uid://d4i7obf2yo5da" path="res://sprites/pinwheel_hand1.png" id="1_gescr"]
+[ext_resource type="Texture2D" uid="uid://78xkmw2manou" path="res://sprites/pinwheel_hand2.png" id="2_u8geu"]
+[ext_resource type="Texture2D" uid="uid://couedhtrkn8mc" path="res://sprites/pinwheel_hand3.png" id="3_utd3e"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8aw5f"]
+frames = 4
+frame_0/texture = ExtResource("1_gescr")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("2_u8geu")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("3_utd3e")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("1_gescr")
+frame_3/duration = 0.2
+
+[resource]
+script = ExtResource("1_1ho3e")
+item_name = "pinwheel"
+image = SubResource("AnimatedTexture_8aw5f")
+metadata/_custom_type_script = "uid://dbxp5x0u8xc0n"

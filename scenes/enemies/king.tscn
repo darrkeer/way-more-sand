@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://cx3nhs20uuh8e"]
+
+[ext_resource type="PackedScene" uid="uid://8uvcb7pl884u" path="res://scenes/enemies/knight.tscn" id="1_pspxi"]
+[ext_resource type="Texture2D" uid="uid://dr2p3kow45ibr" path="res://sprites/king.png" id="2_weewv"]
+[ext_resource type="Script" uid="uid://ca8700gmkua1e" path="res://scripts/enemies/king/king_death.gd" id="3_c5rq1"]
+[ext_resource type="PackedScene" uid="uid://ccb861h4ek0ri" path="res://scenes/items/sand.tscn" id="4_p2j75"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5rq1"]
+atlas = ExtResource("2_weewv")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2j75"]
+atlas = ExtResource("2_weewv")
+region = Rect2(256, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlmf6"]
+atlas = ExtResource("2_weewv")
+region = Rect2(128, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1taxh"]
+atlas = ExtResource("2_weewv")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4v3i"]
+atlas = ExtResource("2_weewv")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr258"]
+atlas = ExtResource("2_weewv")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0oyc"]
+atlas = ExtResource("2_weewv")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6031n"]
+atlas = ExtResource("2_weewv")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dq2i"]
+atlas = ExtResource("2_weewv")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oi2s"]
+atlas = ExtResource("2_weewv")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2xoo"]
+atlas = ExtResource("2_weewv")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id8wk"]
+atlas = ExtResource("2_weewv")
+region = Rect2(128, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkv20"]
+atlas = ExtResource("2_weewv")
+region = Rect2(256, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj0px"]
+atlas = ExtResource("2_weewv")
+region = Rect2(384, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmwpp"]
+atlas = ExtResource("2_weewv")
+region = Rect2(0, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54ho3"]
+atlas = ExtResource("2_weewv")
+region = Rect2(128, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp7lq"]
+atlas = ExtResource("2_weewv")
+region = Rect2(256, 512, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i07d4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5rq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2j75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlmf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1taxh")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4v3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr258")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0oyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6031n")
+}],
+"loop": 1,
+"name": &"chase",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dq2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oi2s")
+}],
+"loop": 1,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2xoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id8wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkv20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj0px")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmwpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54ho3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp7lq")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="King" unique_id=390920761 instance=ExtResource("1_pspxi")]
+
+[node name="CharacterBody3D" parent="." index="0" unique_id=124303464]
+MOVE_SOUND_DELAY = 0.4
+BASE_HP = 14
+BASE_DAMAGE = 6
+WALK_SOUNDS = Array[String](["king1", "king2"])
+
+[node name="AnimatedSprite3D" parent="CharacterBody3D" index="2" unique_id=376186462]
+sprite_frames = SubResource("SpriteFrames_i07d4")
+animation = &"attack"
+frame_progress = 0.6002375
+
+[node name="Death" parent="StateMachine" parent_id_path=PackedInt32Array(158099096) index="4" unique_id=197594114 node_paths=PackedStringArray("base")]
+script = ExtResource("3_c5rq1")
+base = NodePath("../../CharacterBody3D")
+drop = ExtResource("4_p2j75")
+drop_probability = 0.3

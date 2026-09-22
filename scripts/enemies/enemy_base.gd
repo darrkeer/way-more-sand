@@ -11,6 +11,7 @@ const DAMAGE_HIT_EFFECT_TIME = 0.1
 @export var MOVE_SOUND_DELAY : float
 @export var BASE_HP : int
 @export var BASE_DAMAGE : int
+@export var WALK_SOUNDS : Array[String] 
 
 @export var agent : NavigationAgent3D
 @export var state_machine : StateMachine
@@ -18,8 +19,8 @@ const DAMAGE_HIT_EFFECT_TIME = 0.1
 var hp : int
 var just_damaged : bool = false
 
-func get_random_chess_walk_sound() -> String:
-	return "chess" + str(randi_range(1, 3))
+func get_random_walk_sound() -> String:
+	return WALK_SOUNDS.pick_random()
 
 func get_damage(amount : int) -> void:
 	hp -= amount
@@ -30,7 +31,7 @@ func get_damage(amount : int) -> void:
 func _ready() -> void:
 	GameController.create_repeat_timeout(MOVE_SOUND_DELAY).connect(func():
 		if velocity != Vector3.ZERO:
-			AudioManager3D.play_sound_on_pos(global_position, get_random_chess_walk_sound())	
+			AudioManager3D.play_sound_on_pos(global_position, get_random_walk_sound())	
 	)
 	hp = BASE_HP
 

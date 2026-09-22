@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dgcrh06hbg77a"]
+
+[ext_resource type="Script" uid="uid://hidfu428kqx2" path="res://scripts/interactables/plate.gd" id="1_bqwkd"]
+[ext_resource type="Texture2D" uid="uid://58arowyyy4pr" path="res://sprites/dust_particle.png" id="1_f5rfc"]
+[ext_resource type="PackedScene" uid="uid://dm06itkkxinx5" path="res://models/plate.glb" id="1_r6sdl"]
+[ext_resource type="Script" uid="uid://bjrqm84lruuar" path="res://scripts/ui/hint_resource.gd" id="2_dgsnm"]
+
+[sub_resource type="Resource" id="Resource_jm1jw"]
+script = ExtResource("2_dgsnm")
+text = "🕹️→🏃🧩🧩"
+show_time = 5.0
+metadata/_custom_type_script = "uid://bjrqm84lruuar"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7222"]
+size = Vector3(0.5319977, 4.6815186, 0.48217773)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbq2l"]
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1kv2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.7647059)
+albedo_texture = ExtResource("1_f5rfc")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xn3ie"]
+material = SubResource("StandardMaterial3D_e1kv2")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Animation" id="Animation_dgsnm"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plate/Cube_001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plate/Cube_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.0332804)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ke0km"]
+resource_name = "idle"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -4, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plate/Cube_001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.4, 0.4, 0.4)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5gr61"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plate/Cube_001:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.0332804), Vector3(0, 6.2831855, -1.033235)]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plate/Cube_001")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.39999998, 0.39999998, 0.39999998, 0.7, 1, 0.39999998, 0.39999998, 0.39999998, 1, 1, 0.5, 0.5, 0.5, 1.3, 1, 0.39999998, 0.39999998, 0.39999998, 2, 1, 0.39999998, 0.39999998, 0.39999998)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.9666667, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_642kg"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -4, 0, 4, 1, 0, 0, 0, 5, 1, 0, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6serq"]
+_data = {
+&"RESET": SubResource("Animation_dgsnm"),
+&"idle": SubResource("Animation_ke0km"),
+&"rotate": SubResource("Animation_5gr61"),
+&"show": SubResource("Animation_642kg")
+}
+
+[node name="Plate" type="StaticBody3D" unique_id=803023864 node_paths=PackedStringArray("player", "pos")]
+script = ExtResource("1_bqwkd")
+player = NodePath("AnimationPlayer")
+pos = NodePath(".")
+hint = SubResource("Resource_jm1jw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1495485564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011940002, 2.3989868, -0.0025634766)
+shape = SubResource("BoxShape3D_c7222")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=731836672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010341406, 0.14489955, 0)
+amount = 30
+lifetime = 0.5
+explosiveness = 0.3
+process_material = SubResource("ParticleProcessMaterial_pbq2l")
+draw_pass_1 = SubResource("QuadMesh_xn3ie")
+
+[node name="plate" parent="." unique_id=1127253113 instance=ExtResource("1_r6sdl")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Cube_001" parent="plate" index="1" unique_id=616060831]
+transform = Transform3D(0.51200384, 0.85898316, 0, -0.85898316, 0.51200384, 0, 0, 0, 1, 0, 9.13493, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=628547648]
+libraries/ = SubResource("AnimationLibrary_6serq")
+autoplay = &"idle"
+
+[editable path="plate"]
